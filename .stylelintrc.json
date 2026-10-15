@@ -1,0 +1,36 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "rules": {
+    "at-rule-disallowed-list": [
+      ["import"],
+      {
+        "message": "Usa @use/@forward. Solo _vendor-bootstrap.scss puede usar @import (Bootstrap 5.3 no soporta módulos)."
+      }
+    ],
+    "selector-class-pattern": [
+      "^[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$",
+      { "message": "Usa kebab-case o BEM (bloque__elemento--modificador)." }
+    ],
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "except": ["blockless-after-same-name-blockless", "first-nested"],
+        "ignore": ["after-comment"],
+        "ignoreAtRules": ["else"]
+      }
+    ],
+    "value-keyword-case": ["lower", { "ignoreKeywords": ["Roboto", "Arial", "SFMono-Regular", "Menlo", "Consolas"] }],
+    "scss/double-slash-comment-empty-line-before": null,
+    "color-hex-length": null,
+    "scss/comment-no-empty": null,
+    "scss/dollar-variable-empty-line-before": null
+  },
+  "overrides": [
+    {
+      "files": ["scss/_vendor-bootstrap.scss"],
+      "rules": {
+        "at-rule-disallowed-list": null
+      }
+    }
+  ]
+}

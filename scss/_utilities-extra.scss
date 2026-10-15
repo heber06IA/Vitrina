@@ -5,77 +5,97 @@
 // Adds entries to the `values` map of an existing Bootstrap utility.
 @function extend-values($utility, $values) {
   $definition: map.get($utilities, $utility);
-  @return map.merge($definition, (values: map.merge(map.get($definition, "values"), $values)));
+
+  @return map.merge(
+    $definition,
+    (
+      values: map.merge(map.get($definition, "values"), $values),
+    )
+  );
 }
 
 $utilities: map.merge(
   $utilities,
   (
     // Palette as text / background / border colors (text-ink, bg-surface, border-line, ...).
-    "color": extend-values("color", (
-      "ink": $ink,
-      "muted": $muted,
-      "accent-ink": $accent-ink,
-      "field": $field,
-      "ground": $ground
-    )),
-    "background-color": extend-values("background-color", (
-      "ground": $ground,
-      "surface": $surface,
-      "plate": $plate,
-      "ink": $ink,
-      "line": $line,
-      "accent-soft": $accent-soft
-    )),
-    "border-color": extend-values("border-color", (
-      "line": $line,
-      "field": $field,
-      "ink": $ink,
-      "ink-25": rgba($ink, .25),
-      "transparent": transparent
-    )),
-
+    "color": extend-values(
+        "color",
+        (
+          "ink": $ink,
+          "muted": $muted,
+          "accent-ink": $accent-ink,
+          "field": $field,
+          "ground": $ground,
+        )
+      ),
+    "background-color": extend-values(
+        "background-color",
+        (
+          "ground": $ground,
+          "surface": $surface,
+          "plate": $plate,
+          "ink": $ink,
+          "line": $line,
+          "accent-soft": $accent-soft,
+        )
+      ),
+    "border-color": extend-values(
+        "border-color",
+        (
+          "line": $line,
+          "field": $field,
+          "ink": $ink,
+          "ink-25": rgba($ink, 0.25),
+          "transparent": transparent,
+        )
+      ),
     // Type scale: .fs-sm, .fs-2xl, .fs-lg-6xl, ... (line heights live in _base.scss).
     "font-size": (
-      responsive: true,
-      property: font-size,
-      class: fs,
-      values: $font-sizes
-    ),
-    "line-height": extend-values("line-height", (
-      "display": 1.05,
-      "tight": 1.25,
-      "snug": 1.375
-    )),
+        responsive: true,
+        property: font-size,
+        class: fs,
+        values: $font-sizes,
+      ),
+    "line-height": extend-values(
+        "line-height",
+        (
+          "display": 1.05,
+          "tight": 1.25,
+          "snug": 1.375,
+        )
+      ),
     "letter-spacing": (
       property: letter-spacing,
       class: tracking,
       values: (
-        tight: -.025em
-      )
+        tight: -0.025em,
+      ),
     ),
     "text-wrap": (
       property: text-wrap,
       class: text,
       values: (
-        balance: balance
-      )
+        balance: balance,
+      ),
     ),
 
     // Measure caps and flex helpers.
-    "max-width": extend-values("max-width", (
-      "32ch": 32ch,
-      "48ch": 48ch,
-      "60ch": 60ch,
-      "65ch": 65ch,
-      "3xl": 48rem
-    )),
+    "max-width": extend-values(
+        "max-width",
+        (
+          "32ch": 32ch,
+          "48ch": 48ch,
+          "60ch": 60ch,
+          "65ch": 65ch,
+          "3xl": 48rem,
+        )
+      ),
     "min-width": (
       property: min-width,
       class: min-w,
       values: (
-        0: 0
-      )
+        0: 0,
+      ),
     ),
     "flex": (
       responsive: true,
@@ -83,8 +103,8 @@ $utilities: map.merge(
       values: (
         fill: 1 1 auto,
         1: 1 1 0%,
-        none: 0 0 auto
-      )
+        none: 0 0 auto,
+      ),
     ),
     "scroll-margin-top": (
       property: scroll-margin-top,
@@ -92,8 +112,8 @@ $utilities: map.merge(
       values: (
         4: 1rem,
         6: 1.5rem,
-        28: 7rem
-      )
+        28: 7rem,
+      ),
     )
   )
 );

@@ -1,0 +1,5 @@
+# Archivos generados por `npm run build`
+assets/css/
+assets/js/
+
+package-lock.json

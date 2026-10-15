@@ -1,186 +1,440 @@
 <!doctype html>
 <html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;display=swap">
-  <link rel="stylesheet" href="assets/css/main.css">
-  <script>document.documentElement.classList.add('js');</script>
-  <script src="assets/js/main.js" defer></script>
-  <script src="assets/js/marketplace.js" defer></script>
-  <title>Tu carrito — Vitrina</title>
-</head>
-<body>
-  <a href="#main" class="visually-hidden-focusable skip-link">Saltar al contenido</a>
-  <header class="site-header">
-    <p data-demo class="announcement">Política de ejemplo: envío gratis en pedidos mayores a $999 MXN</p>
-    <div class="container-xl d-flex flex-wrap flex-md-nowrap align-items-center column-gap-4 column-gap-md-8 row-gap-3 py-4">
-      <button type="button" class="nav-toggle icon-btn ms-n2 d-md-none" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Menú de departamentos"><svg class="icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg></button>
-      <a href="index.html" class="brand">Vitrina</a>
-      <form role="search" action="index.html" method="get" class="search-pill order-last order-md-0">
-        <label for="site-search" class="visually-hidden">Buscar productos</label>
-        <span class="search-pill__icon"><svg class="icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
-        <input type="search" id="site-search" name="q" placeholder="Buscar productos" class="form-control">
-        <button type="submit" class="btn btn-primary btn-sm">Buscar</button>
-      </form>
-      <nav aria-label="Acciones de la cuenta" class="d-flex align-items-center gap-1 ms-auto ms-md-0">
-        <a href="sell.html" class="header-link">Vender</a>
-        <a href="account.html" class="icon-btn"><svg class="icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="visually-hidden">Mi cuenta</span></a>
-        <a href="cart.html" class="icon-btn position-relative" aria-current="page"><svg class="icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="visually-hidden">Carrito (2)</span><span class="count-badge" aria-hidden="true">2</span></a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;display=swap"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script>
+      document.documentElement.classList.add('js');
+    </script>
+    <script src="assets/js/main.js" defer></script>
+    <title>Tu carrito — Vitrina</title>
+  </head>
+  <body>
+    <a href="#main" class="visually-hidden-focusable skip-link">Saltar al contenido</a>
+    <header class="site-header">
+      <p data-demo class="announcement">Política de ejemplo: envío gratis en pedidos mayores a $999 MXN</p>
+      <div
+        class="container-xl d-flex flex-wrap flex-md-nowrap align-items-center column-gap-4 column-gap-md-8 row-gap-3 py-4"
+      >
+        <button
+          type="button"
+          class="nav-toggle icon-btn ms-n2 d-md-none"
+          data-nav-toggle
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Menú de departamentos"
+        >
+          <svg
+            class="icon-md"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M4 6h16" />
+            <path d="M4 12h16" />
+            <path d="M4 18h16" />
+          </svg>
+        </button>
+        <a href="index.html" class="brand">Vitrina</a>
+        <form role="search" action="index.html" method="get" class="search-pill order-last order-md-0">
+          <label for="site-search" class="visually-hidden">Buscar productos</label>
+          <span class="search-pill__icon"
+            ><svg
+              class="icon-md"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" /></svg
+          ></span>
+          <input type="search" id="site-search" name="q" placeholder="Buscar productos" class="form-control" />
+          <button type="submit" class="btn btn-primary btn-sm">Buscar</button>
+        </form>
+        <nav aria-label="Acciones de la cuenta" class="d-flex align-items-center gap-1 ms-auto ms-md-0">
+          <a href="sell.html" class="header-link">Vender</a>
+          <a href="account.html" class="icon-btn"
+            ><svg
+              class="icon-md"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" /></svg
+            ><span class="visually-hidden">Mi cuenta</span></a
+          >
+          <a href="cart.html" class="icon-btn position-relative" aria-current="page"
+            ><svg
+              class="icon-md"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+              <path d="M3 6h18" />
+              <path d="M16 10a4 4 0 0 1-8 0" /></svg
+            ><span class="visually-hidden">Carrito (2)</span><span class="count-badge" aria-hidden="true">2</span></a
+          >
+        </nav>
+      </div>
+      <nav id="site-nav" aria-label="Principal" data-nav class="site-nav">
+        <ul class="container-xl d-flex flex-wrap align-items-center column-gap-2 py-1 fs-sm fw-medium">
+          <li><a href="index.html" class="site-nav__link ms-n4">Inicio</a></li>
+          <li><a href="index.html#ropa" class="site-nav__link">Ropa</a></li>
+          <li><a href="index.html#perfumes" class="site-nav__link">Perfumes</a></li>
+          <li><a href="index.html#tecnologia" class="site-nav__link">Tecnología</a></li>
+        </ul>
       </nav>
-    </div>
-    <nav id="site-nav" aria-label="Principal" data-nav class="site-nav">
-      <ul class="container-xl d-flex flex-wrap align-items-center column-gap-2 py-1 fs-sm fw-medium">
-        <li><a href="index.html" class="site-nav__link ms-n4">Inicio</a></li>
-        <li><a href="index.html#ropa" class="site-nav__link">Ropa</a></li>
-        <li><a href="index.html#perfumes" class="site-nav__link">Perfumes</a></li>
-        <li><a href="index.html#tecnologia" class="site-nav__link">Tecnología</a></li>
-      </ul>
-    </nav>
-  </header>
+    </header>
 
-  <main id="main">
-    <div class="container-xl pt-8 pt-lg-12">
-      <h1 class="fs-4xl fw-semibold tracking-tight">Tu carrito</h1>
-      <div class="mt-10 cart-layout">
-        <section aria-labelledby="cart-items-title">
-          <h2 id="cart-items-title" class="border-bottom pb-4 fs-lg fw-semibold">Productos (2)</h2>
-          <ul class="list-divided list-divided-flush pt-6">
-            <li class="cart-line py-6">
-              <a href="product.html" class="plate cart-thumb ratio ratio-4x5" tabindex="-1">
-                <img src="Clothes/1%20(Men).jpg" alt="Sudadera oversize gris topo" width="431" height="658" loading="lazy" class="object-fit-cover">
-              </a>
-              <div class="d-flex min-w-0 flex-1 flex-column">
-                <div class="d-flex align-items-start justify-content-between gap-4">
-                  <div class="min-w-0">
-                    <h3 class="fw-medium lh-snug"><a href="product.html" class="link-underline-hover">Sudadera oversize gris topo</a></h3>
-                    <p class="mt-1 fs-sm text-muted">Color: gris topo · Talla: M</p>
-                  </div>
-                  <p class="text-end fs-sm text-muted"><span class="price fs-base text-ink">$899.00</span><span class="d-block fs-xs">MXN c/u</span></p>
-                </div>
-                <div class="mt-auto d-flex align-items-end justify-content-between gap-4 pt-4">
-                  <div>
-                    <label for="qty-1" class="visually-hidden">Cantidad</label>
-                    <div class="stepper" data-stepper>
-                      <button type="button" data-step="-1" aria-label="Disminuir cantidad"><svg class="icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/></svg></button>
-                      <input type="number" id="qty-1" name="qty-1" min="1" max="10" value="1" inputmode="numeric">
-                      <button type="button" data-step="1" aria-label="Aumentar cantidad"><svg class="icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button>
+    <main id="main">
+      <div class="container-xl pt-8 pt-lg-12">
+        <h1 class="fs-4xl fw-semibold tracking-tight">Tu carrito</h1>
+        <div class="mt-10 cart-layout">
+          <section aria-labelledby="cart-items-title">
+            <h2 id="cart-items-title" class="border-bottom pb-4 fs-lg fw-semibold">Productos (2)</h2>
+            <ul class="list-divided list-divided-flush pt-6">
+              <li class="cart-line py-6">
+                <a href="product.html" class="plate cart-thumb ratio ratio-4x5" tabindex="-1">
+                  <img
+                    src="Clothes/1%20(Men).jpg"
+                    alt="Sudadera oversize gris topo"
+                    width="431"
+                    height="658"
+                    loading="lazy"
+                    class="object-fit-cover"
+                  />
+                </a>
+                <div class="d-flex min-w-0 flex-1 flex-column">
+                  <div class="d-flex align-items-start justify-content-between gap-4">
+                    <div class="min-w-0">
+                      <h3 class="fw-medium lh-snug">
+                        <a href="product.html" class="link-underline-hover">Sudadera oversize gris topo</a>
+                      </h3>
+                      <p class="mt-1 fs-sm text-muted">Color: gris topo · Talla: M</p>
                     </div>
+                    <p class="text-end fs-sm text-muted">
+                      <span class="price fs-base text-ink">$899.00</span><span class="d-block fs-xs">MXN c/u</span>
+                    </p>
                   </div>
-                  <button type="button" aria-label="Quitar Sudadera oversize gris topo del carrito" class="icon-btn icon-btn-danger"><svg class="icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
-                </div>
-              </div>
-            </li>
-            <li class="cart-line py-6">
-              <a href="product.html" class="plate cart-thumb ratio ratio-4x5" tabindex="-1">
-                <img src="Clothes/6(Men).jpg" alt="Playera oversize color arena" width="723" height="1290" loading="lazy" class="object-fit-cover">
-              </a>
-              <div class="d-flex min-w-0 flex-1 flex-column">
-                <div class="d-flex align-items-start justify-content-between gap-4">
-                  <div class="min-w-0">
-                    <h3 class="fw-medium lh-snug"><a href="product.html" class="link-underline-hover">Playera oversize color arena</a></h3>
-                    <p class="mt-1 fs-sm text-muted">Color: arena · Talla: L</p>
-                  </div>
-                  <p class="text-end fs-sm text-muted"><span class="price fs-base text-ink">$499.00</span><span class="d-block fs-xs">MXN c/u</span></p>
-                </div>
-                <div class="mt-auto d-flex align-items-end justify-content-between gap-4 pt-4">
-                  <div>
-                    <label for="qty-2" class="visually-hidden">Cantidad</label>
-                    <div class="stepper" data-stepper>
-                      <button type="button" data-step="-1" aria-label="Disminuir cantidad"><svg class="icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/></svg></button>
-                      <input type="number" id="qty-2" name="qty-2" min="1" max="10" value="1" inputmode="numeric">
-                      <button type="button" data-step="1" aria-label="Aumentar cantidad"><svg class="icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M12 5v14"/></svg></button>
+                  <div class="mt-auto d-flex align-items-end justify-content-between gap-4 pt-4">
+                    <div>
+                      <label for="qty-1" class="visually-hidden">Cantidad</label>
+                      <div class="stepper" data-stepper>
+                        <button type="button" data-step="-1" aria-label="Disminuir cantidad">
+                          <svg
+                            class="icon-md"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                            focusable="false"
+                          >
+                            <path d="M5 12h14" />
+                          </svg>
+                        </button>
+                        <input type="number" id="qty-1" name="qty-1" min="1" max="10" value="1" inputmode="numeric" />
+                        <button type="button" data-step="1" aria-label="Aumentar cantidad">
+                          <svg
+                            class="icon-md"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                            focusable="false"
+                          >
+                            <path d="M5 12h14" />
+                            <path d="M12 5v14" />
+                          </svg>
+                        </button>
+                      </div>
                     </div>
+                    <button
+                      type="button"
+                      aria-label="Quitar Sudadera oversize gris topo del carrito"
+                      class="icon-btn icon-btn-danger"
+                    >
+                      <svg
+                        class="icon-md"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M3 6h18" />
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                        <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                      </svg>
+                    </button>
                   </div>
-                  <button type="button" aria-label="Quitar Playera oversize color arena del carrito" class="icon-btn icon-btn-danger"><svg class="icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
                 </div>
+              </li>
+              <li class="cart-line py-6">
+                <a href="product.html" class="plate cart-thumb ratio ratio-4x5" tabindex="-1">
+                  <img
+                    src="Clothes/6(Men).jpg"
+                    alt="Playera oversize color arena"
+                    width="723"
+                    height="1290"
+                    loading="lazy"
+                    class="object-fit-cover"
+                  />
+                </a>
+                <div class="d-flex min-w-0 flex-1 flex-column">
+                  <div class="d-flex align-items-start justify-content-between gap-4">
+                    <div class="min-w-0">
+                      <h3 class="fw-medium lh-snug">
+                        <a href="product.html" class="link-underline-hover">Playera oversize color arena</a>
+                      </h3>
+                      <p class="mt-1 fs-sm text-muted">Color: arena · Talla: L</p>
+                    </div>
+                    <p class="text-end fs-sm text-muted">
+                      <span class="price fs-base text-ink">$499.00</span><span class="d-block fs-xs">MXN c/u</span>
+                    </p>
+                  </div>
+                  <div class="mt-auto d-flex align-items-end justify-content-between gap-4 pt-4">
+                    <div>
+                      <label for="qty-2" class="visually-hidden">Cantidad</label>
+                      <div class="stepper" data-stepper>
+                        <button type="button" data-step="-1" aria-label="Disminuir cantidad">
+                          <svg
+                            class="icon-md"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                            focusable="false"
+                          >
+                            <path d="M5 12h14" />
+                          </svg>
+                        </button>
+                        <input type="number" id="qty-2" name="qty-2" min="1" max="10" value="1" inputmode="numeric" />
+                        <button type="button" data-step="1" aria-label="Aumentar cantidad">
+                          <svg
+                            class="icon-md"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                            focusable="false"
+                          >
+                            <path d="M5 12h14" />
+                            <path d="M12 5v14" />
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      aria-label="Quitar Playera oversize color arena del carrito"
+                      class="icon-btn icon-btn-danger"
+                    >
+                      <svg
+                        class="icon-md"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M3 6h18" />
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                        <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <p class="mt-6 fs-sm text-muted">
+              En esta demostración, cambiar cantidades o quitar productos no actualiza el total.
+            </p>
+            <p class="mt-6">
+              <a href="index.html" class="d-inline-flex align-items-center gap-2 fs-sm fw-medium link-underline-hover"
+                ><svg
+                  class="icon-sm rotate-180"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" /></svg
+                >Seguir comprando</a
+              >
+            </p>
+          </section>
+
+          <aside aria-labelledby="summary-title" class="order-summary">
+            <h2 id="summary-title" class="fs-lg fw-semibold">Resumen del pedido</h2>
+            <dl class="mt-5 vstack gap-3 fs-sm">
+              <div class="d-flex justify-content-between">
+                <dt class="text-muted">Subtotal</dt>
+                <dd class="price fw-medium">$1,398.00 MXN</dd>
               </div>
-            </li>
-          </ul>
-          <p class="mt-6 fs-sm text-muted">En esta demostración, cambiar cantidades o quitar productos no actualiza el total.</p>
-          <p class="mt-6"><a href="index.html" class="d-inline-flex align-items-center gap-2 fs-sm fw-medium link-underline-hover"><svg class="icon-sm rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>Seguir comprando</a></p>
+              <div class="d-flex justify-content-between">
+                <dt class="text-muted">Envío</dt>
+                <dd class="fw-medium text-accent-ink">Gratis</dd>
+              </div>
+              <div class="d-flex justify-content-between border-top pt-4 fs-base">
+                <dt class="fw-semibold">Total</dt>
+                <dd class="price">$1,398.00 MXN</dd>
+              </div>
+            </dl>
+            <form
+              action="cart.html"
+              method="get"
+              data-demo-form
+              data-demo-message="Los cupones no están disponibles en esta demostración."
+              class="mt-6 border-top pt-6"
+            >
+              <label for="coupon" class="form-label">Código de cupón</label>
+              <div class="d-flex gap-2">
+                <input type="text" id="coupon" name="cupon" autocomplete="off" class="form-control min-w-0 flex-1" />
+                <button type="submit" class="btn btn-outline-primary btn-field">Aplicar</button>
+              </div>
+              <p role="status" aria-live="polite" data-demo-notice class="demo-notice"></p>
+            </form>
+            <button type="button" class="btn btn-primary btn-lg mt-6 w-100">Proceder al pago</button>
+            <p class="mt-3 text-center fs-sm text-muted">El pago no está disponible todavía en esta demostración.</p>
+          </aside>
+        </div>
+
+        <section id="empty-cart" aria-labelledby="empty-title" hidden class="py-20 text-center">
+          <h2 id="empty-title" class="fs-2xl fw-semibold tracking-tight">Tu carrito está vacío</h2>
+          <p class="mt-2 text-muted">Agrega productos para verlos aquí.</p>
+          <p class="mt-6"><a href="index.html#catalogo" class="btn btn-primary">Explorar productos</a></p>
         </section>
-
-        <aside aria-labelledby="summary-title" class="order-summary">
-          <h2 id="summary-title" class="fs-lg fw-semibold">Resumen del pedido</h2>
-          <dl class="mt-5 vstack gap-3 fs-sm">
-            <div class="d-flex justify-content-between"><dt class="text-muted">Subtotal</dt><dd class="price fw-medium">$1,398.00 MXN</dd></div>
-            <div class="d-flex justify-content-between"><dt class="text-muted">Envío</dt><dd class="fw-medium text-accent-ink">Gratis</dd></div>
-            <div class="d-flex justify-content-between border-top pt-4 fs-base"><dt class="fw-semibold">Total</dt><dd class="price">$1,398.00 MXN</dd></div>
-          </dl>
-          <form action="cart.html" method="get" data-demo-form data-demo-message="Los cupones no están disponibles en esta demostración." class="mt-6 border-top pt-6">
-            <label for="coupon" class="form-label">Código de cupón</label>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="container-xl footer-grid py-14">
+        <div>
+          <a href="index.html" class="brand">Vitrina</a>
+          <p class="mt-3 mw-32ch fs-sm text-muted">
+            Compra y vende productos de vendedores independientes en un solo lugar.
+          </p>
+        </div>
+        <nav aria-label="Pie de página" class="row g-8">
+          <section aria-labelledby="footer-buy" class="col-6 col-sm-4">
+            <h2 id="footer-buy" class="fs-sm fw-semibold">Comprar</h2>
+            <ul class="vstack gap-3 mt-4">
+              <li><a href="index.html#ropa" class="link-muted fs-sm">Ropa</a></li>
+              <li><a href="index.html#perfumes" class="link-muted fs-sm">Perfumes</a></li>
+              <li><a href="index.html#tecnologia" class="link-muted fs-sm">Tecnología</a></li>
+              <li><a href="cart.html" class="link-muted fs-sm">Carrito</a></li>
+            </ul>
+          </section>
+          <section aria-labelledby="footer-sell" class="col-6 col-sm-4">
+            <h2 id="footer-sell" class="fs-sm fw-semibold">Vender</h2>
+            <ul class="vstack gap-3 mt-4">
+              <li><a href="sell.html" class="link-muted fs-sm">Publicar un producto</a></li>
+              <li><a href="account.html" class="link-muted fs-sm">Crear una cuenta de vendedor</a></li>
+            </ul>
+          </section>
+          <section aria-labelledby="footer-help" class="col-6 col-sm-4">
+            <h2 id="footer-help" class="fs-sm fw-semibold">Ayuda</h2>
+            <ul class="vstack gap-3 mt-4">
+              <li><a href="product.html#envios" class="link-muted fs-sm">Envíos y devoluciones</a></li>
+              <li><a href="account.html" class="link-muted fs-sm">Mi cuenta</a></li>
+            </ul>
+          </section>
+        </nav>
+        <section aria-labelledby="footer-news">
+          <h2 id="footer-news" class="fs-sm fw-semibold">Novedades por correo</h2>
+          <form
+            action="index.html"
+            method="get"
+            data-demo-form
+            data-demo-message="El registro al boletín no está disponible en esta demostración."
+            class="mt-4"
+          >
+            <label for="newsletter-email" class="visually-hidden">Correo electrónico</label>
             <div class="d-flex gap-2">
-              <input type="text" id="coupon" name="cupon" autocomplete="off" class="form-control min-w-0 flex-1">
-              <button type="submit" class="btn btn-outline-primary btn-field">Aplicar</button>
+              <input
+                type="email"
+                id="newsletter-email"
+                name="email"
+                autocomplete="email"
+                placeholder="tu@correo.com"
+                required
+                class="form-control min-w-0 flex-1 rounded-pill px-4"
+              />
+              <button type="submit" class="btn btn-primary btn-field">Suscribirme</button>
             </div>
             <p role="status" aria-live="polite" data-demo-notice class="demo-notice"></p>
           </form>
-          <button type="button" class="btn btn-primary btn-lg mt-6 w-100">Proceder al pago</button>
-          <p class="mt-3 text-center fs-sm text-muted">El pago no está disponible todavía en esta demostración.</p>
-        </aside>
-      </div>
-
-      <section id="empty-cart" aria-labelledby="empty-title" hidden class="py-20 text-center">
-        <h2 id="empty-title" class="fs-2xl fw-semibold tracking-tight">Tu carrito está vacío</h2>
-        <p class="mt-2 text-muted">Agrega productos para verlos aquí.</p>
-        <p class="mt-6"><a href="index.html#catalogo" class="btn btn-primary">Explorar productos</a></p>
-      </section>
-    </div>
-  </main>
-  <footer class="site-footer">
-    <div class="container-xl footer-grid py-14">
-      <div>
-        <a href="index.html" class="brand">Vitrina</a>
-        <p class="mt-3 mw-32ch fs-sm text-muted">Compra y vende productos de vendedores independientes en un solo lugar.</p>
-      </div>
-      <nav aria-label="Pie de página" class="row g-8">
-        <section aria-labelledby="footer-buy" class="col-6 col-sm-4">
-          <h2 id="footer-buy" class="fs-sm fw-semibold">Comprar</h2>
-          <ul class="vstack gap-3 mt-4">
-            <li><a href="index.html#ropa" class="link-muted fs-sm">Ropa</a></li>
-            <li><a href="index.html#perfumes" class="link-muted fs-sm">Perfumes</a></li>
-            <li><a href="index.html#tecnologia" class="link-muted fs-sm">Tecnología</a></li>
-            <li><a href="cart.html" class="link-muted fs-sm">Carrito</a></li>
-          </ul>
         </section>
-        <section aria-labelledby="footer-sell" class="col-6 col-sm-4">
-          <h2 id="footer-sell" class="fs-sm fw-semibold">Vender</h2>
-          <ul class="vstack gap-3 mt-4">
-            <li><a href="sell.html" class="link-muted fs-sm">Publicar un producto</a></li>
-            <li><a href="account.html" class="link-muted fs-sm">Crear una cuenta de vendedor</a></li>
-          </ul>
-        </section>
-        <section aria-labelledby="footer-help" class="col-6 col-sm-4">
-          <h2 id="footer-help" class="fs-sm fw-semibold">Ayuda</h2>
-          <ul class="vstack gap-3 mt-4">
-            <li><a href="product.html#envios" class="link-muted fs-sm">Envíos y devoluciones</a></li>
-            <li><a href="account.html" class="link-muted fs-sm">Mi cuenta</a></li>
-          </ul>
-        </section>
-      </nav>
-      <section aria-labelledby="footer-news">
-        <h2 id="footer-news" class="fs-sm fw-semibold">Novedades por correo</h2>
-        <form action="index.html" method="get" data-demo-form data-demo-message="El registro al boletín no está disponible en esta demostración." class="mt-4">
-          <label for="newsletter-email" class="visually-hidden">Correo electrónico</label>
-          <div class="d-flex gap-2">
-            <input type="email" id="newsletter-email" name="email" autocomplete="email" placeholder="tu@correo.com" required class="form-control min-w-0 flex-1 rounded-pill px-4">
-            <button type="submit" class="btn btn-primary btn-field">Suscribirme</button>
-          </div>
-          <p role="status" aria-live="polite" data-demo-notice class="demo-notice"></p>
-        </form>
-      </section>
-    </div>
-    <div class="container-xl">
-      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 border-top py-6 fs-sm text-muted">
-        <p>© 2026 Vitrina</p>
-        <p>Datos de demostración</p>
       </div>
-    </div>
-  </footer>
-</body>
+      <div class="container-xl">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 border-top py-6 fs-sm text-muted">
+          <p>© 2026 Vitrina</p>
+          <p>Datos de demostración</p>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
-

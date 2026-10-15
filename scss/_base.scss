@@ -9,6 +9,8 @@ html {
   caret-color: $ink;
   scrollbar-width: thin;
   scrollbar-color: $scrollbar $surface;
+  // Safari on iOS only understands the prefixed property.
+  // stylelint-disable-next-line property-no-vendor-prefix
   -webkit-text-size-adjust: 100%;
 
   @media (prefers-reduced-motion: reduce) {
@@ -50,7 +52,7 @@ summary {
 }
 
 a {
-  text-underline-offset: .22em;
+  text-underline-offset: 0.22em;
   text-decoration-thickness: 1px;
 }
 
@@ -78,7 +80,12 @@ textarea::placeholder {
 }
 
 // .h1-.h3 are listed explicitly: Bootstrap's `.h1 { @extend h1 }` does not reach selectors in other modules.
-h1, .h1, h2, .h2, h3, .h3 {
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
   text-wrap: balance;
 }
 
@@ -90,13 +97,16 @@ button {
   color: inherit;
 }
 
-ul, ol {
+ul,
+ol {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-dl, dd, figure {
+dl,
+dd,
+figure {
   margin: 0;
 }
 
@@ -144,7 +154,7 @@ $type-line-heights: (
   "3xl": 2.25rem,
   "4xl": 2.5rem,
   "5xl": 1,
-  "6xl": 1
+  "6xl": 1,
 );
 
 @each $name, $height in $type-line-heights {

@@ -6,26 +6,26 @@
 // ---------------------------------------------------------------------------
 // Palette (DESIGN.md "colors")
 // ---------------------------------------------------------------------------
-$ground:      #ffffff;
-$surface:     #f7f7f6;
-$plate:       #f2f2f0;
-$ink:         #111111;
-$ink-hover:   #2b2b2b;
-$muted:       #5c5c5c;
-$line:        #e6e6e3;
-$field:       #8c8c88;
-$accent:      #13a874;
-$accent-ink:  #0b7a52;
+$ground: #ffffff;
+$surface: #f7f7f6;
+$plate: #f2f2f0;
+$ink: #111111;
+$ink-hover: #2b2b2b;
+$muted: #5c5c5c;
+$line: #e6e6e3;
+$field: #8c8c88;
+$accent: #13a874;
+$accent-ink: #0b7a52;
 $accent-soft: #e6f5ef;
-$danger:      #c2362f;
-$scrollbar:   #c4c4c0;
+$danger: #c2362f;
+$scrollbar: #c4c4c0;
 
 // Bootstrap theme roles. Primary actions are ink; the green accent is only for savings and stock.
-$primary:   $ink;
+$primary: $ink;
 $secondary: $muted;
-$success:   $accent;
-$light:     $surface;
-$dark:      $ink;
+$success: $accent;
+$light: $surface;
+$dark: $ink;
 
 $white: $ground;
 $black: #000000;
@@ -44,12 +44,12 @@ $gray-900: $ink;
 // ---------------------------------------------------------------------------
 // Switches
 // ---------------------------------------------------------------------------
-$enable-shadows:          false;
-$enable-gradients:        false;
-$enable-rfs:              false;
-$enable-dark-mode:        false;
+$enable-shadows: false;
+$enable-gradients: false;
+$enable-rfs: false;
+$enable-dark-mode: false;
 $enable-negative-margins: true;
-$enable-cssgrid:          false;
+$enable-cssgrid: false;
 
 // ---------------------------------------------------------------------------
 // Layout: breakpoints, container and spacing share Tailwind's scale, so every
@@ -61,7 +61,7 @@ $grid-breakpoints: (
   md: 768px,
   lg: 1024px,
   xl: 1280px,
-  xxl: 1536px
+  xxl: 1536px,
 );
 
 // One centered 80rem container (xl and up keep 1280px); narrower viewports use the full width.
@@ -69,20 +69,20 @@ $container-max-widths: (
   sm: 640px,
   md: 768px,
   lg: 1024px,
-  xl: 1280px
+  xl: 1280px,
 );
 
 // Spacing scale in 4px steps: class key = pixels / 4 (so `p-4` is 16px). "-5" keys are the half steps.
 $spacer: 1rem;
 $spacers: (
   0: 0,
-  "0-5": .125rem,
-  1: .25rem,
-  "1-5": .375rem,
-  2: .5rem,
-  "2-5": .625rem,
-  3: .75rem,
-  "3-5": .875rem,
+  "0-5": 0.125rem,
+  1: 0.25rem,
+  "1-5": 0.375rem,
+  2: 0.5rem,
+  "2-5": 0.625rem,
+  3: 0.75rem,
+  "3-5": 0.875rem,
   4: 1rem,
   5: 1.25rem,
   6: 1.5rem,
@@ -93,7 +93,7 @@ $spacers: (
   14: 3.5rem,
   16: 4rem,
   20: 5rem,
-  24: 6rem
+  24: 6rem,
 );
 
 $grid-gutter-width: 1.5rem;
@@ -104,25 +104,34 @@ $container-padding-x: 2rem;
 // ---------------------------------------------------------------------------
 // Typography: Geist throughout, tabular numerals for prices (see _base.scss)
 // ---------------------------------------------------------------------------
-$font-family-sans-serif: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-sans-serif:
+  "Geist",
+  ui-sans-serif,
+  system-ui,
+  -apple-system,
+  "Segoe UI",
+  Roboto,
+  "Helvetica Neue",
+  Arial,
+  sans-serif;
 $font-family-monospace: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-$font-size-base:        1rem;
-$line-height-base:      1.5;
+$font-size-base: 1rem;
+$line-height-base: 1.5;
 
 // Type roles (DESIGN.md "typography"); sizes are applied with the .fs-* utilities.
 $font-sizes: (
-  "xs":      .75rem,
-  "micro":   .6875rem,
-  "sm":      .875rem,
-  "product": .9375rem,
-  "base":    1rem,
-  "lg":      1.125rem,
-  "xl":      1.25rem,
-  "2xl":     1.5rem,
-  "3xl":     1.875rem,
-  "4xl":     2.25rem,
-  "5xl":     3rem,
-  "6xl":     3.75rem
+  "xs": 0.75rem,
+  "micro": 0.6875rem,
+  "sm": 0.875rem,
+  "product": 0.9375rem,
+  "base": 1rem,
+  "lg": 1.125rem,
+  "xl": 1.25rem,
+  "2xl": 1.5rem,
+  "3xl": 1.875rem,
+  "4xl": 2.25rem,
+  "5xl": 3rem,
+  "6xl": 3.75rem,
 );
 
 // Headings carry their size and weight through utilities, like the rest of the type scale.
@@ -132,129 +141,135 @@ $h3-font-size: 1rem;
 $h4-font-size: 1rem;
 $h5-font-size: 1rem;
 $h6-font-size: 1rem;
-$headings-font-weight:   inherit;
-$headings-line-height:   inherit;
+$headings-font-weight: inherit;
+$headings-line-height: inherit;
 $headings-margin-bottom: 0;
 $paragraph-margin-bottom: 0;
-$dt-font-weight:         inherit;
-$lead-font-size:         1.125rem;
+$dt-font-weight: inherit;
+$lead-font-size: 1.125rem;
 
 // ---------------------------------------------------------------------------
 // Body, links, borders
 // ---------------------------------------------------------------------------
-$body-bg:               $ground;
-$body-color:            $ink;
-$body-emphasis-color:   $ink;
-$body-secondary-color:  $muted;
-$body-secondary-bg:     $surface;
-$body-tertiary-color:   $muted;
-$body-tertiary-bg:      $surface;
-$text-muted:            $muted;
+$body-bg: $ground;
+$body-color: $ink;
+$body-emphasis-color: $ink;
+$body-secondary-color: $muted;
+$body-secondary-bg: $surface;
+$body-tertiary-color: $muted;
+$body-tertiary-bg: $surface;
+$text-muted: $muted;
 
-$link-color:             $ink;
-$link-hover-color:       $ink;
-$link-decoration:        none;
-$link-hover-decoration:  none;
+$link-color: $ink;
+$link-hover-color: $ink;
+$link-decoration: none;
+$link-hover-decoration: none;
 
-$border-width:    1px;
-$border-color:    $line;
+$border-width: 1px;
+$border-color: $line;
 
 // Shape scale: field 8px, plate 12px, hero plate 16px, pill.
-$border-radius:      .5rem;
-$border-radius-sm:   .25rem;
-$border-radius-lg:   .75rem;
-$border-radius-xl:   1rem;
-$border-radius-xxl:  1.5rem;
+$border-radius: 0.5rem;
+$border-radius-sm: 0.25rem;
+$border-radius-lg: 0.75rem;
+$border-radius-xl: 1rem;
+$border-radius-xxl: 1.5rem;
 $border-radius-pill: 9999px;
 
 // Focus is a 2px ink outline with 2px offset (see _base.scss); Bootstrap's focus glow is switched off.
-$focus-ring-width:       2px;
-$focus-ring-opacity:     1;
-$focus-ring-color:       $ink;
-$focus-ring-blur:        0;
-$focus-ring-box-shadow:  none;
-$input-btn-focus-width:      0;
-$input-btn-focus-blur:       0;
+$focus-ring-width: 2px;
+$focus-ring-opacity: 1;
+$focus-ring-color: $ink;
+$focus-ring-blur: 0;
+$focus-ring-box-shadow: none;
+$input-btn-focus-width: 0;
+$input-btn-focus-blur: 0;
 $input-btn-focus-box-shadow: none;
 
-$transition-base: all .2s ease-in-out;
-$btn-transition:  color .2s ease-out, background-color .2s ease-out, border-color .2s ease-out, transform .2s ease-out;
+$transition-base: all 0.2s ease-in-out;
+$btn-transition:
+  color 0.2s ease-out,
+  background-color 0.2s ease-out,
+  border-color 0.2s ease-out,
+  transform 0.2s ease-out;
 
 // ---------------------------------------------------------------------------
 // Buttons: 48px pills, 40px small, 56px large
 // ---------------------------------------------------------------------------
-$btn-padding-y:          0;
-$btn-padding-x:          1.5rem;
-$btn-font-size:          .9375rem;
-$btn-font-weight:        500;
-$btn-line-height:        1.5;
-$btn-border-width:       1px;
-$btn-border-radius:      $border-radius-pill;
-$btn-padding-y-sm:       0;
-$btn-padding-x-sm:       1.25rem;
-$btn-font-size-sm:       .875rem;
-$btn-border-radius-sm:   $border-radius-pill;
-$btn-padding-y-lg:       0;
-$btn-padding-x-lg:       1.5rem;
-$btn-font-size-lg:       .9375rem;
-$btn-border-radius-lg:   $border-radius-pill;
-$btn-disabled-opacity:   .5;
-$btn-active-box-shadow:  none;
-$btn-box-shadow:         none;
-$btn-focus-box-shadow:   none;
+$btn-padding-y: 0;
+$btn-padding-x: 1.5rem;
+$btn-font-size: 0.9375rem;
+$btn-font-weight: 500;
+$btn-line-height: 1.5;
+$btn-border-width: 1px;
+$btn-border-radius: $border-radius-pill;
+$btn-padding-y-sm: 0;
+$btn-padding-x-sm: 1.25rem;
+$btn-font-size-sm: 0.875rem;
+$btn-border-radius-sm: $border-radius-pill;
+$btn-padding-y-lg: 0;
+$btn-padding-x-lg: 1.5rem;
+$btn-font-size-lg: 0.9375rem;
+$btn-border-radius-lg: $border-radius-pill;
+$btn-disabled-opacity: 0.5;
+$btn-active-box-shadow: none;
+$btn-box-shadow: none;
+$btn-focus-box-shadow: none;
 
 // ---------------------------------------------------------------------------
 // Form fields: 44px, 8px radius, field-stroke border; pill variants are applied with .rounded-pill
 // ---------------------------------------------------------------------------
-$input-bg:                   $ground;
-$input-color:                $ink;
-$input-border-color:         $field;
-$input-border-width:         1px;
-$input-border-radius:        $border-radius;
-$input-border-radius-sm:     $border-radius;
-$input-border-radius-lg:     $border-radius;
-$input-padding-y:            .5625rem;
-$input-padding-x:            .875rem;
-$input-padding-y-sm:         .5rem;
-$input-padding-x-sm:         1rem;
-$input-padding-y-lg:         .75rem;
-$input-padding-x-lg:         1rem;
-$input-font-size:            1rem;
-$input-font-size-sm:         .875rem;
-$input-font-size-lg:         1rem;
-$input-line-height:          1.5;
-$input-height:               2.75rem;
-$input-height-sm:            2.5rem;
-$input-height-lg:            3rem;
-$input-focus-border-color:   $ink;
-$input-focus-box-shadow:     none;
-$input-focus-bg:             $ground;
-$input-focus-color:          $ink;
-$input-placeholder-color:    $muted;
-$input-disabled-color:       $muted;
-$input-disabled-bg:          $surface;
+$input-bg: $ground;
+$input-color: $ink;
+$input-border-color: $field;
+$input-border-width: 1px;
+$input-border-radius: $border-radius;
+$input-border-radius-sm: $border-radius;
+$input-border-radius-lg: $border-radius;
+$input-padding-y: 0.5625rem;
+$input-padding-x: 0.875rem;
+$input-padding-y-sm: 0.5rem;
+$input-padding-x-sm: 1rem;
+$input-padding-y-lg: 0.75rem;
+$input-padding-x-lg: 1rem;
+$input-font-size: 1rem;
+$input-font-size-sm: 0.875rem;
+$input-font-size-lg: 1rem;
+$input-line-height: 1.5;
+$input-height: 2.75rem;
+$input-height-sm: 2.5rem;
+$input-height-lg: 3rem;
+$input-focus-border-color: $ink;
+$input-focus-box-shadow: none;
+$input-focus-bg: $ground;
+$input-focus-color: $ink;
+$input-placeholder-color: $muted;
+$input-disabled-color: $muted;
+$input-disabled-bg: $surface;
 $input-disabled-border-color: $field;
-$input-transition:           border-color .2s ease-out, background-color .2s ease-out;
+$input-transition:
+  border-color 0.2s ease-out,
+  background-color 0.2s ease-out;
 
-$form-label-font-size:       .875rem;
-$form-label-font-weight:     500;
-$form-label-margin-bottom:   .375rem;
-$form-label-color:           $ink;
+$form-label-font-size: 0.875rem;
+$form-label-font-weight: 500;
+$form-label-margin-bottom: 0.375rem;
+$form-label-color: $ink;
 
-$form-select-padding-x:        .875rem;
-$form-select-padding-y:        $input-padding-y;
+$form-select-padding-x: 0.875rem;
+$form-select-padding-y: $input-padding-y;
 $form-select-indicator-padding: 2.5rem;
-$form-select-bg-position:      right .875rem center;
-$form-select-bg-size:          1rem;
+$form-select-bg-position: right 0.875rem center;
+$form-select-bg-size: 1rem;
 $form-select-indicator: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111111' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
 
-$form-check-input-width:                 1.25em;
-$form-check-input-border:                1px solid $field;
-$form-check-input-border-radius:         .25em;
-$form-check-input-checked-color:         $ground;
-$form-check-input-checked-bg-color:      $ink;
-$form-check-input-checked-border-color:  $ink;
-$form-check-input-focus-border:          $ink;
-$form-check-input-focus-box-shadow:      none;
-$form-check-padding-start:               1.75em;
-$form-check-label-color:                 $ink;
+$form-check-input-width: 1.25em;
+$form-check-input-border: 1px solid $field;
+$form-check-input-border-radius: 0.25em;
+$form-check-input-checked-color: $ground;
+$form-check-input-checked-bg-color: $ink;
+$form-check-input-checked-border-color: $ink;
+$form-check-input-focus-border: $ink;
+$form-check-input-focus-box-shadow: none;
+$form-check-padding-start: 1.75em;
+$form-check-label-color: $ink;

@@ -15529,7 +15529,12 @@ textarea::placeholder {
   opacity: 1;
 }
 
-h1, .h1, h2, .h2, h3, .h3 {
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
   text-wrap: balance;
 }
 
@@ -15540,13 +15545,16 @@ button {
   color: inherit;
 }
 
-ul, ol {
+ul,
+ol {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-dl, dd, figure {
+dl,
+dd,
+figure {
   margin: 0;
 }
 
@@ -15653,7 +15661,7 @@ html.js .nav-toggle {
   min-height: 3rem;
   white-space: nowrap;
 }
-.btn:active:not(:disabled):not(.disabled) {
+.btn:active:not(:disabled, .disabled) {
   transform: scale(0.98);
 }
 .btn:disabled, .btn.disabled {
@@ -15758,11 +15766,11 @@ html.js .nav-toggle {
 }
 
 .icon-filled {
-  fill: currentColor;
+  fill: currentcolor;
 }
 
 [aria-pressed=true] > svg {
-  fill: currentColor;
+  fill: currentcolor;
 }
 
 .link-muted {

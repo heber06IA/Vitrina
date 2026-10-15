@@ -3,7 +3,7 @@
 @use "tokens" as *;
 @use "vendor-bootstrap" as bs;
 
-$ease-out-expo: cubic-bezier(.16, 1, .3, 1);
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
 // ---------------------------------------------------------------------------
 // Buttons: ink pills (primary), 25%-ink outline pills (secondary)
@@ -12,12 +12,12 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: .5rem;
+  gap: 0.5rem;
   min-height: 3rem;
   white-space: nowrap;
 
-  &:active:not(:disabled):not(.disabled) {
-    transform: scale(.98);
+  &:active:not(:disabled, .disabled) {
+    transform: scale(0.98);
   }
 
   &:disabled,
@@ -37,6 +37,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 // 44px button that sits next to a form field.
 .btn-field {
   --#{bs.$prefix}btn-padding-x: 1.25rem;
+
   min-height: 2.75rem;
 }
 
@@ -53,7 +54,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 .btn-outline-primary {
   --#{bs.$prefix}btn-color: #{$ink};
   --#{bs.$prefix}btn-bg: #{$ground};
-  --#{bs.$prefix}btn-border-color: #{rgba($ink, .25)};
+  --#{bs.$prefix}btn-border-color: #{rgba($ink, 0.25)};
   --#{bs.$prefix}btn-hover-color: #{$ink};
   --#{bs.$prefix}btn-hover-bg: #{$surface};
   --#{bs.$prefix}btn-hover-border-color: #{$ink};
@@ -62,12 +63,13 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   --#{bs.$prefix}btn-active-border-color: #{$ink};
   --#{bs.$prefix}btn-disabled-color: #{$ink};
   --#{bs.$prefix}btn-disabled-bg: #{$ground};
-  --#{bs.$prefix}btn-disabled-border-color: #{rgba($ink, .25)};
+  --#{bs.$prefix}btn-disabled-border-color: #{rgba($ink, 0.25)};
 }
 
 // 56px circular outline button (favorite on the product page).
 .round-btn {
   --#{bs.$prefix}btn-padding-x: 0;
+
   flex-shrink: 0;
   width: 3.5rem;
 }
@@ -81,7 +83,9 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   height: 2.75rem;
   border-radius: $border-radius-pill;
   color: $ink;
-  transition: background-color .15s, color .15s;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
 
   &:hover {
     background-color: $surface;
@@ -93,7 +97,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 
   &:disabled {
     pointer-events: none;
-    opacity: .4;
+    opacity: 0.4;
   }
 }
 
@@ -112,14 +116,32 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 // ---------------------------------------------------------------------------
 // Icons and links
 // ---------------------------------------------------------------------------
-.icon-sm { width: 1rem; height: 1rem; }
-.icon-md { width: 1.25rem; height: 1.25rem; }
-.icon-lg { width: 1.5rem; height: 1.5rem; }
-.icon-xl { width: 1.75rem; height: 1.75rem; }
-.icon-filled { fill: currentColor; }
+.icon-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.icon-md {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.icon-lg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icon-xl {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.icon-filled {
+  fill: currentcolor;
+}
 
 [aria-pressed="true"] > svg {
-  fill: currentColor;
+  fill: currentcolor;
 }
 
 .link-muted {
@@ -137,8 +159,8 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 .link-more {
   display: inline-flex;
   align-items: center;
-  gap: .375rem;
-  font-size: .875rem;
+  gap: 0.375rem;
+  font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
 
@@ -159,11 +181,11 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   top: 1rem;
   left: 1rem;
   z-index: 50;
-  padding: .75rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   border-radius: $border-radius-pill;
   background: $ink;
   color: $ground;
-  font-size: .875rem;
+  font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
 }
@@ -174,10 +196,10 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 }
 
 .announcement {
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   background: $surface;
   color: $muted;
-  font-size: .75rem;
+  font-size: 0.75rem;
   line-height: 1rem;
   text-align: center;
 }
@@ -186,7 +208,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 700;
-  letter-spacing: -.025em;
+  letter-spacing: -0.025em;
 }
 
 .header-link {
@@ -195,10 +217,10 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   height: 2.75rem;
   padding: 0 1rem;
   border-radius: $border-radius-pill;
-  font-size: .875rem;
+  font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
-  transition: background-color .15s;
+  transition: background-color 0.15s;
 
   &:hover {
     background-color: $surface;
@@ -207,8 +229,8 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 
 .count-badge {
   position: absolute;
-  top: .125rem;
-  right: .125rem;
+  top: 0.125rem;
+  right: 0.125rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -217,7 +239,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   border-radius: $border-radius-pill;
   background: $ink;
   color: $ground;
-  font-size: .6875rem;
+  font-size: 0.6875rem;
   font-weight: 500;
   line-height: 1;
 }
@@ -253,8 +275,8 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 
   .btn {
     position: absolute;
-    top: .25rem;
-    right: .25rem;
+    top: 0.25rem;
+    right: 0.25rem;
 
     &:active:not(:disabled) {
       transform: none;
@@ -306,9 +328,9 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 }
 
 .demo-notice {
-  margin-top: .75rem;
+  margin-top: 0.75rem;
   color: $muted;
-  font-size: .875rem;
+  font-size: 0.875rem;
   line-height: 1.25rem;
 
   &:empty {
@@ -328,11 +350,11 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 .brace-label {
   display: inline-flex;
   align-items: center;
-  padding: .25rem .75rem;
+  padding: 0.25rem 0.75rem;
   border-radius: $border-radius-pill;
   background: $ground;
   color: $ink;
-  font-size: .875rem;
+  font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
 }
@@ -347,7 +369,9 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   border-radius: $border-radius-pill;
   background: $ground;
   color: $ink;
-  transition: background-color .3s $ease-out-expo, color .3s $ease-out-expo;
+  transition:
+    background-color 0.3s $ease-out-expo,
+    color 0.3s $ease-out-expo;
 }
 
 .arrow-btn-ink {
@@ -371,7 +395,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform .5s ease-out;
+    transition: transform 0.5s ease-out;
   }
 
   &:hover > img {
@@ -381,15 +405,15 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   .brace-label,
   .arrow-btn {
     position: absolute;
-    top: .75rem;
+    top: 0.75rem;
   }
 
   .brace-label {
-    left: .75rem;
+    left: 0.75rem;
   }
 
   .arrow-btn {
-    right: .75rem;
+    right: 0.75rem;
   }
 
   &:hover .arrow-btn,
@@ -433,7 +457,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   padding: 1rem;
   border-radius: $border-radius-lg;
   background: $ground;
-  box-shadow: 0 12px 32px -10px rgba($ink, .28);
+  box-shadow: 0 12px 32px -10px rgba($ink, 0.28);
 
   @include bs.media-breakpoint-up(sm) {
     right: auto;
@@ -454,7 +478,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   min-height: 16rem;
   padding: 1.25rem;
   color: $ink;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
 
   &:hover {
     background-color: $line;
@@ -477,11 +501,14 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   border-radius: $border-radius-pill;
   background: $ground;
   color: $ink;
-  font-size: .875rem;
+  font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
   cursor: pointer;
-  transition: border-color .15s, background-color .15s, color .15s;
+  transition:
+    border-color 0.15s,
+    background-color 0.15s,
+    color 0.15s;
 
   &:hover {
     border-color: $ink;
@@ -499,11 +526,14 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   border-radius: $border-radius;
   background: $ground;
   color: $ink;
-  font-size: .875rem;
+  font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
   cursor: pointer;
-  transition: border-color .15s, background-color .15s, color .15s;
+  transition:
+    border-color 0.15s,
+    background-color 0.15s,
+    color 0.15s;
 
   &:hover {
     border-color: $ink;
@@ -519,7 +549,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   border: 1px solid $line;
   border-radius: 50%;
   cursor: pointer;
-  transition: box-shadow .15s;
+  transition: box-shadow 0.15s;
 
   &:hover {
     box-shadow: 0 0 0 2px $field;
@@ -535,7 +565,9 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 }
 
 .btn-check:checked + .swatch {
-  box-shadow: 0 0 0 2px $ground, 0 0 0 4px $ink;
+  box-shadow:
+    0 0 0 2px $ground,
+    0 0 0 4px $ink;
 }
 
 .btn-check:focus-visible + .chip,
@@ -547,7 +579,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 
 .catalog-filters {
   margin-top: 1.5rem;
-  padding-block: .75rem;
+  padding-block: 0.75rem;
   border-block: 1px solid $line;
   background: $ground;
 
@@ -562,7 +594,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: end;
-  gap: .75rem;
+  gap: 0.75rem;
 
   @include bs.media-breakpoint-up(sm) {
     grid-template-columns: repeat(2, minmax(0, 7rem)) minmax(0, 12rem) auto;
@@ -592,7 +624,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 }
 
 .product-card__img {
-  transition: transform .5s ease-out;
+  transition: transform 0.5s ease-out;
 }
 
 .product-card:hover .product-card__img {
@@ -603,19 +635,19 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding-top: .75rem;
+  padding-top: 0.75rem;
 }
 
 .product-card__name {
-  font-size: .9375rem;
+  font-size: 0.9375rem;
   line-height: 1.375;
   font-weight: 500;
 }
 
 .fav-btn {
   position: absolute;
-  top: .75rem;
-  right: .75rem;
+  top: 0.75rem;
+  right: 0.75rem;
   z-index: 2;
   display: flex;
   align-items: center;
@@ -625,7 +657,9 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   border-radius: $border-radius-pill;
   background: $ground;
   color: $ink;
-  transition: background-color .15s, color .15s;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
 
   &:hover {
     background: $ink;
@@ -648,21 +682,21 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 // Savings and in-stock signals: the only place the green accent appears.
 .tag {
   display: inline-flex;
-  padding: .25rem .75rem;
+  padding: 0.25rem 0.75rem;
   border-radius: $border-radius-pill;
   background: $surface;
-  font-size: .75rem;
+  font-size: 0.75rem;
   line-height: 1rem;
   font-weight: 500;
 }
 
 .tag-savings {
   display: inline-flex;
-  padding: .125rem .625rem;
+  padding: 0.125rem 0.625rem;
   border-radius: $border-radius-pill;
   background: $accent-soft;
   color: $accent-ink;
-  font-size: .875rem;
+  font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
 }
@@ -676,7 +710,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   height: 2.75rem;
   border-radius: $border-radius-pill;
   background: $plate;
-  font-size: .875rem;
+  font-size: 0.875rem;
   font-weight: 600;
 }
 
@@ -708,7 +742,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   height: 3rem;
   border-bottom: 2px solid transparent;
   color: $muted;
-  font-size: .875rem;
+  font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
   white-space: nowrap;
@@ -806,6 +840,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
     font-variant-numeric: tabular-nums;
     text-align: center;
     appearance: textfield;
+    // stylelint-disable-next-line property-no-vendor-prefix -- hides the number spinner in older Firefox
     -moz-appearance: textfield;
 
     &:focus-visible {
@@ -815,6 +850,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
     &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {
       margin: 0;
+      // stylelint-disable-next-line property-no-vendor-prefix -- WebKit spin buttons need the prefixed property
       -webkit-appearance: none;
     }
   }
@@ -826,7 +862,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
     width: 2.75rem;
     height: 2.75rem;
     border-radius: $border-radius-pill;
-    transition: background-color .15s;
+    transition: background-color 0.15s;
 
     &:hover {
       background-color: $surface;
@@ -834,7 +870,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 
     &:disabled {
       pointer-events: none;
-      opacity: .4;
+      opacity: 0.4;
     }
   }
 }
@@ -856,12 +892,12 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 textarea.form-control {
   height: auto;
   min-height: 8rem;
-  padding-block: .75rem;
+  padding-block: 0.75rem;
 }
 
 .drop-zone {
   display: grid;
-  gap: .5rem;
+  gap: 0.5rem;
   place-items: center;
   padding: 2.5rem 1.5rem;
   border: 2px dashed $field;
@@ -869,7 +905,7 @@ textarea.form-control {
   background: $ground;
   text-align: center;
   cursor: pointer;
-  transition: background-color .15s;
+  transition: background-color 0.15s;
 
   &:hover {
     background: $surface;
@@ -887,7 +923,7 @@ textarea.form-control {
   bottom: 0;
   z-index: 20;
   margin: 2.5rem -1rem 0;
-  padding: .75rem 1rem;
+  padding: 0.75rem 1rem;
   border-top: 1px solid $line;
   background: $ground;
 

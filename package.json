@@ -1,16 +1,35 @@
 {
   "name": "vitrina",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "description": "Static storefront skeleton for the Vitrina marketplace (demo data).",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
-    "build": "sass --load-path=node_modules --quiet-deps --silence-deprecation=import --no-source-map scss/main.scss assets/css/main.css",
-    "watch": "sass --load-path=node_modules --quiet-deps --silence-deprecation=import --no-source-map --watch scss/main.scss assets/css/main.css",
-    "test": "node --test"
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "sass --load-path=node_modules --quiet-deps --silence-deprecation=import --no-source-map scss/main.scss assets/css/main.css",
+    "build:js": "esbuild src/js/main.js --bundle --format=iife --target=es2020 --outfile=assets/js/main.js",
+    "watch:css": "npm run build:css -- --watch",
+    "watch:js": "npm run build:js -- --watch",
+    "lint": "npm run lint:js && npm run lint:css && npm run format:check",
+    "lint:js": "eslint .",
+    "lint:css": "stylelint \"scss/**/*.scss\"",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "node --test",
+    "check": "npm run lint && npm test && npm run build"
   },
   "devDependencies": {
+    "@eslint/js": "10.0.1",
     "bootstrap": "5.3.8",
-    "sass": "1.105.1"
+    "esbuild": "0.28.2",
+    "eslint": "10.12.0",
+    "globals": "17.13.0",
+    "prettier": "3.9.10",
+    "sass": "1.105.1",
+    "stylelint": "17.16.0",
+    "stylelint-config-standard-scss": "17.0.0"
   }
 }
