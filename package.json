@@ -5,8 +5,8 @@
   "type": "module",
   "description": "Static storefront skeleton for the Vitrina marketplace (demo data).",
   "scripts": {
-    "build": "sass --load-path=node_modules --quiet-deps --silence-deprecation=import,color-functions,global-builtin --no-source-map scss/main.scss assets/css/main.css",
-    "watch": "sass --load-path=node_modules --quiet-deps --silence-deprecation=import,color-functions,global-builtin --no-source-map --watch scss/main.scss assets/css/main.css",
+    "build": "sass --load-path=node_modules --quiet-deps --silence-deprecation=import --no-source-map scss/main.scss assets/css/main.css",
+    "watch": "sass --load-path=node_modules --quiet-deps --silence-deprecation=import --no-source-map --watch scss/main.scss assets/css/main.css",
     "test": "node --test"
   },
   "devDependencies": {

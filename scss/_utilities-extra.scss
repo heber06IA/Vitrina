@@ -1,56 +1,39 @@
 // Extensions to Bootstrap's $utilities map: the project palette, the type scale and a few helpers.
-// Imported after bootstrap/scss/utilities and before bootstrap/scss/utilities/api.
+// Imported by _vendor-bootstrap.scss after bootstrap/scss/utilities and before bootstrap/scss/utilities/api.
+@use "sass:map";
 
-$utilities: map-merge(
+// Adds entries to the `values` map of an existing Bootstrap utility.
+@function extend-values($utility, $values) {
+  $definition: map.get($utilities, $utility);
+  @return map.merge($definition, (values: map.merge(map.get($definition, "values"), $values)));
+}
+
+$utilities: map.merge(
   $utilities,
   (
     // Palette as text / background / border colors (text-ink, bg-surface, border-line, ...).
-    "color": map-merge(
-      map-get($utilities, "color"),
-      (
-        values: map-merge(
-          map-get(map-get($utilities, "color"), "values"),
-          (
-            "ink": $ink,
-            "muted": $muted,
-            "accent-ink": $accent-ink,
-            "field": $field,
-            "ground": $ground
-          )
-        )
-      )
-    ),
-    "background-color": map-merge(
-      map-get($utilities, "background-color"),
-      (
-        values: map-merge(
-          map-get(map-get($utilities, "background-color"), "values"),
-          (
-            "ground": $ground,
-            "surface": $surface,
-            "plate": $plate,
-            "ink": $ink,
-            "line": $line,
-            "accent-soft": $accent-soft
-          )
-        )
-      )
-    ),
-    "border-color": map-merge(
-      map-get($utilities, "border-color"),
-      (
-        values: map-merge(
-          map-get(map-get($utilities, "border-color"), "values"),
-          (
-            "line": $line,
-            "field": $field,
-            "ink": $ink,
-            "ink-25": rgba($ink, .25),
-            "transparent": transparent
-          )
-        )
-      )
-    ),
+    "color": extend-values("color", (
+      "ink": $ink,
+      "muted": $muted,
+      "accent-ink": $accent-ink,
+      "field": $field,
+      "ground": $ground
+    )),
+    "background-color": extend-values("background-color", (
+      "ground": $ground,
+      "surface": $surface,
+      "plate": $plate,
+      "ink": $ink,
+      "line": $line,
+      "accent-soft": $accent-soft
+    )),
+    "border-color": extend-values("border-color", (
+      "line": $line,
+      "field": $field,
+      "ink": $ink,
+      "ink-25": rgba($ink, .25),
+      "transparent": transparent
+    )),
 
     // Type scale: .fs-sm, .fs-2xl, .fs-lg-6xl, ... (line heights live in _base.scss).
     "font-size": (
@@ -59,19 +42,11 @@ $utilities: map-merge(
       class: fs,
       values: $font-sizes
     ),
-    "line-height": map-merge(
-      map-get($utilities, "line-height"),
-      (
-        values: map-merge(
-          map-get(map-get($utilities, "line-height"), "values"),
-          (
-            "display": 1.05,
-            "tight": 1.25,
-            "snug": 1.375
-          )
-        )
-      )
-    ),
+    "line-height": extend-values("line-height", (
+      "display": 1.05,
+      "tight": 1.25,
+      "snug": 1.375
+    )),
     "letter-spacing": (
       property: letter-spacing,
       class: tracking,
@@ -88,21 +63,13 @@ $utilities: map-merge(
     ),
 
     // Measure caps and flex helpers.
-    "max-width": map-merge(
-      map-get($utilities, "max-width"),
-      (
-        values: map-merge(
-          map-get(map-get($utilities, "max-width"), "values"),
-          (
-            "32ch": 32ch,
-            "48ch": 48ch,
-            "60ch": 60ch,
-            "65ch": 65ch,
-            "3xl": 48rem
-          )
-        )
-      )
-    ),
+    "max-width": extend-values("max-width", (
+      "32ch": 32ch,
+      "48ch": 48ch,
+      "60ch": 60ch,
+      "65ch": 65ch,
+      "3xl": 48rem
+    )),
     "min-width": (
       property: min-width,
       class: min-w,

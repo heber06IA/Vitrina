@@ -1,0 +1,49 @@
+// Puente con Bootstrap 5.3: el ÚNICO archivo del proyecto que usa @import.
+//
+// Bootstrap 5.3 no es compatible con el sistema de módulos de Sass (@use/@forward): sus parciales
+// dependen de variables globales y la personalización exige intercalar nuestros archivos entre los suyos.
+// El resto del proyecto carga este puente con `@use "vendor-bootstrap" as bs;` para acceder a
+// sus mixins y variables (bs.media-breakpoint-up, bs.$prefix, ...).
+// Cuando Bootstrap publique soporte para módulos (v6), este archivo se reemplaza por @use.
+//
+// El orden sigue la guía de Sass de Bootstrap 5.3:
+// funciones > variables propias > variables > mapas propios > mapas, mixins, root > parciales > API de utilidades.
+
+@import "bootstrap/scss/functions";
+
+// 1. Nuestras variables (paleta, tipografía, espaciado) ganan a los !default de Bootstrap.
+@import "tokens";
+
+// 2. Valores por defecto de Bootstrap para lo que no sobrescribimos.
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+
+// 3. Mapas propios (colores de tema, proporciones) y los helpers que los consumen.
+@import "theme-maps";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+@import "utilities-extra";
+@import "bootstrap/scss/root";
+
+// 4. Solo los parciales de Bootstrap que usa la tienda.
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/forms/labels";
+@import "bootstrap/scss/forms/form-text";
+@import "bootstrap/scss/forms/form-control";
+@import "bootstrap/scss/forms/form-select";
+@import "bootstrap/scss/forms/form-check";
+@import "bootstrap/scss/helpers/ratio";
+@import "bootstrap/scss/helpers/position";
+@import "bootstrap/scss/helpers/stacks";
+@import "bootstrap/scss/helpers/stretched-link";
+@import "bootstrap/scss/helpers/text-truncation";
+@import "bootstrap/scss/helpers/visually-hidden";
+
+// 5. Utilidades generadas a partir del mapa $utilities extendido.
+@import "bootstrap/scss/utilities/api";

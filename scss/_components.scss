@@ -1,5 +1,7 @@
 // Project components. Layout comes from Bootstrap's grid and utilities in the markup; this file holds
 // the pieces that carry the Vitrina identity (DESIGN.md "Components").
+@use "tokens" as *;
+@use "vendor-bootstrap" as bs;
 
 $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 
@@ -34,38 +36,38 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 
 // 44px button that sits next to a form field.
 .btn-field {
-  --#{$prefix}btn-padding-x: 1.25rem;
+  --#{bs.$prefix}btn-padding-x: 1.25rem;
   min-height: 2.75rem;
 }
 
 .btn-primary {
-  --#{$prefix}btn-border-width: 0;
-  --#{$prefix}btn-hover-bg: #{$ink-hover};
-  --#{$prefix}btn-hover-border-color: #{$ink-hover};
-  --#{$prefix}btn-active-bg: #000;
-  --#{$prefix}btn-active-border-color: #000;
-  --#{$prefix}btn-disabled-bg: #{$ink};
-  --#{$prefix}btn-disabled-border-color: #{$ink};
+  --#{bs.$prefix}btn-border-width: 0;
+  --#{bs.$prefix}btn-hover-bg: #{$ink-hover};
+  --#{bs.$prefix}btn-hover-border-color: #{$ink-hover};
+  --#{bs.$prefix}btn-active-bg: #000;
+  --#{bs.$prefix}btn-active-border-color: #000;
+  --#{bs.$prefix}btn-disabled-bg: #{$ink};
+  --#{bs.$prefix}btn-disabled-border-color: #{$ink};
 }
 
 .btn-outline-primary {
-  --#{$prefix}btn-color: #{$ink};
-  --#{$prefix}btn-bg: #{$ground};
-  --#{$prefix}btn-border-color: #{rgba($ink, .25)};
-  --#{$prefix}btn-hover-color: #{$ink};
-  --#{$prefix}btn-hover-bg: #{$surface};
-  --#{$prefix}btn-hover-border-color: #{$ink};
-  --#{$prefix}btn-active-color: #{$ink};
-  --#{$prefix}btn-active-bg: #{$surface};
-  --#{$prefix}btn-active-border-color: #{$ink};
-  --#{$prefix}btn-disabled-color: #{$ink};
-  --#{$prefix}btn-disabled-bg: #{$ground};
-  --#{$prefix}btn-disabled-border-color: #{rgba($ink, .25)};
+  --#{bs.$prefix}btn-color: #{$ink};
+  --#{bs.$prefix}btn-bg: #{$ground};
+  --#{bs.$prefix}btn-border-color: #{rgba($ink, .25)};
+  --#{bs.$prefix}btn-hover-color: #{$ink};
+  --#{bs.$prefix}btn-hover-bg: #{$surface};
+  --#{bs.$prefix}btn-hover-border-color: #{$ink};
+  --#{bs.$prefix}btn-active-color: #{$ink};
+  --#{bs.$prefix}btn-active-bg: #{$surface};
+  --#{bs.$prefix}btn-active-border-color: #{$ink};
+  --#{bs.$prefix}btn-disabled-color: #{$ink};
+  --#{bs.$prefix}btn-disabled-bg: #{$ground};
+  --#{bs.$prefix}btn-disabled-border-color: #{rgba($ink, .25)};
 }
 
 // 56px circular outline button (favorite on the product page).
 .round-btn {
-  --#{$prefix}btn-padding-x: 0;
+  --#{bs.$prefix}btn-padding-x: 0;
   flex-shrink: 0;
   width: 3.5rem;
 }
@@ -225,7 +227,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   position: relative;
   width: 100%;
 
-  @include media-breakpoint-up(md) {
+  @include bs.media-breakpoint-up(md) {
     flex: 1 1 0%;
     max-width: 36rem;
     margin-inline: auto;
@@ -298,7 +300,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   display: grid;
   gap: 3rem;
 
-  @include media-breakpoint-up(lg) {
+  @include bs.media-breakpoint-up(lg) {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) minmax(0, 1.1fr);
   }
 }
@@ -359,7 +361,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   display: block;
   aspect-ratio: 4 / 3;
 
-  @include media-breakpoint-up(sm) {
+  @include bs.media-breakpoint-up(sm) {
     aspect-ratio: 3 / 4;
   }
 
@@ -401,11 +403,11 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   position: relative;
   aspect-ratio: 5 / 6;
 
-  @include media-breakpoint-up(sm) {
+  @include bs.media-breakpoint-up(sm) {
     aspect-ratio: 4 / 5;
   }
 
-  @include media-breakpoint-up(lg) {
+  @include bs.media-breakpoint-up(lg) {
     aspect-ratio: auto;
     height: 32rem;
   }
@@ -433,7 +435,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   background: $ground;
   box-shadow: 0 12px 32px -10px rgba($ink, .28);
 
-  @include media-breakpoint-up(sm) {
+  @include bs.media-breakpoint-up(sm) {
     right: auto;
     width: 20rem;
   }
@@ -549,7 +551,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   border-block: 1px solid $line;
   background: $ground;
 
-  @include media-breakpoint-up(md) {
+  @include bs.media-breakpoint-up(md) {
     position: sticky;
     top: 0;
     z-index: 30;
@@ -562,7 +564,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   align-items: end;
   gap: .75rem;
 
-  @include media-breakpoint-up(sm) {
+  @include bs.media-breakpoint-up(sm) {
     grid-template-columns: repeat(2, minmax(0, 7rem)) minmax(0, 12rem) auto;
   }
 }
@@ -570,7 +572,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
 .filter-controls__wide {
   grid-column: span 2;
 
-  @include media-breakpoint-up(sm) {
+  @include bs.media-breakpoint-up(sm) {
     grid-column: auto;
   }
 }
@@ -685,7 +687,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   display: grid;
   gap: 2rem;
 
-  @include media-breakpoint-up(lg) {
+  @include bs.media-breakpoint-up(lg) {
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
     gap: 3.5rem;
   }
@@ -695,7 +697,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   display: grid;
   gap: 1rem;
 
-  @include media-breakpoint-up(sm) {
+  @include bs.media-breakpoint-up(sm) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
@@ -744,7 +746,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   gap: 3rem;
   align-items: start;
 
-  @include media-breakpoint-up(lg) {
+  @include bs.media-breakpoint-up(lg) {
     grid-template-columns: minmax(0, 1fr) 24rem;
   }
 }
@@ -753,7 +755,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   display: flex;
   gap: 1rem;
 
-  @include media-breakpoint-up(sm) {
+  @include bs.media-breakpoint-up(sm) {
     gap: 1.5rem;
   }
 }
@@ -763,7 +765,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   align-self: flex-start;
   width: 6rem;
 
-  @include media-breakpoint-up(sm) {
+  @include bs.media-breakpoint-up(sm) {
     width: 7rem;
   }
 }
@@ -773,7 +775,7 @@ $ease-out-expo: cubic-bezier(.16, 1, .3, 1);
   border-radius: $border-radius-xl;
   background: $surface;
 
-  @include media-breakpoint-up(lg) {
+  @include bs.media-breakpoint-up(lg) {
     position: sticky;
     top: 1.5rem;
   }
@@ -889,14 +891,14 @@ textarea.form-control {
   border-top: 1px solid $line;
   background: $ground;
 
-  @include media-breakpoint-up(sm) {
+  @include bs.media-breakpoint-up(sm) {
     margin-right: -1.5rem;
     margin-left: -1.5rem;
     padding-right: 1.5rem;
     padding-left: 1.5rem;
   }
 
-  @include media-breakpoint-up(md) {
+  @include bs.media-breakpoint-up(md) {
     position: static;
     margin-right: 0;
     margin-left: 0;
@@ -906,7 +908,7 @@ textarea.form-control {
 }
 
 .account-divider {
-  @include media-breakpoint-up(md) {
+  @include bs.media-breakpoint-up(md) {
     border-left: 1px solid $line;
   }
 }

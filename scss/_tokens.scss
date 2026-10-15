@@ -1,5 +1,7 @@
 // Design tokens: the Vitrina palette, type and shape from DESIGN.md, expressed as Bootstrap variable overrides.
-// This partial is imported before Bootstrap's variables, so everything here wins through !default.
+// _vendor-bootstrap.scss imports this partial before Bootstrap's variables, so everything here wins
+// through !default; the project partials load the same values as a module with `@use "tokens" as *`.
+// Keep this file free of @use/@import and of Bootstrap functions: it must work in both roles.
 
 // ---------------------------------------------------------------------------
 // Palette (DESIGN.md "colors")

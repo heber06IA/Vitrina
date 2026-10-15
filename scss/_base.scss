@@ -1,5 +1,7 @@
 // Base layer: the browser surfaces the design owns (selection, caret, scrollbars, focus) and a few resets
 // that keep Bootstrap's reboot aligned with the Vitrina look.
+@use "tokens" as *;
+@use "vendor-bootstrap" as bs;
 
 html {
   scroll-behavior: smooth;
@@ -54,12 +56,12 @@ a {
 
 // Side padding grows with the viewport: 16px, 24px, 32px (--bs-gutter-x is the padding total).
 .container-xl {
-  @include media-breakpoint-up(sm) {
-    --#{$prefix}gutter-x: 3rem;
+  @include bs.media-breakpoint-up(sm) {
+    --#{bs.$prefix}gutter-x: 3rem;
   }
 
-  @include media-breakpoint-up(lg) {
-    --#{$prefix}gutter-x: 4rem;
+  @include bs.media-breakpoint-up(lg) {
+    --#{bs.$prefix}gutter-x: 4rem;
   }
 }
 
@@ -75,7 +77,8 @@ textarea::placeholder {
   opacity: 1;
 }
 
-h1, h2, h3 {
+// .h1-.h3 are listed explicitly: Bootstrap's `.h1 { @extend h1 }` does not reach selectors in other modules.
+h1, .h1, h2, .h2, h3, .h3 {
   text-wrap: balance;
 }
 
@@ -159,13 +162,13 @@ html.js .nav-toggle {
   display: inline-flex;
 }
 
-@include media-breakpoint-up(md) {
+@include bs.media-breakpoint-up(md) {
   html.js .nav-toggle {
     display: none;
   }
 }
 
-@include media-breakpoint-down(md) {
+@include bs.media-breakpoint-down(md) {
   html.js [data-nav]:not([data-open="true"]) {
     display: none;
   }

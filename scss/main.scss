@@ -1,48 +1,12 @@
-// Vitrina storefront stylesheet: Bootstrap 5.3 customised through Sass.
-// Build with `npm run build`; the compiled assets/css/main.css is committed so the pages open without npm.
+// Hoja de estilos de Vitrina: Bootstrap 5.3 personalizado con Sass.
+// Compila con `npm run build`; assets/css/main.css se versiona para que las páginas abran sin npm.
 //
-// Import order follows the Bootstrap 5.3 Sass guide:
-// functions > variable overrides > variables > map overrides > maps, mixins, root > partials > utilities api > custom code.
+// Todo el proyecto usa el sistema de módulos de Sass (@use). La única excepción es
+// _vendor-bootstrap.scss, que envuelve Bootstrap 5.3 (ver el comentario de ese archivo).
 
-@import "bootstrap/scss/functions";
+// 1. Bootstrap con nuestros tokens, mapas y utilidades.
+@use "vendor-bootstrap";
 
-// 1. Our variable overrides (palette, type, spacing, component sizing from DESIGN.md).
-@import "tokens";
-
-// 2. Bootstrap defaults for everything we did not override.
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/variables-dark";
-
-// 3. Map overrides (theme colors) and the helpers that consume them.
-@import "theme-maps";
-@import "bootstrap/scss/maps";
-@import "bootstrap/scss/mixins";
-@import "bootstrap/scss/utilities";
-@import "utilities-extra";
-@import "bootstrap/scss/root";
-
-// 4. Only the Bootstrap partials the storefront uses.
-@import "bootstrap/scss/reboot";
-@import "bootstrap/scss/type";
-@import "bootstrap/scss/images";
-@import "bootstrap/scss/containers";
-@import "bootstrap/scss/grid";
-@import "bootstrap/scss/buttons";
-@import "bootstrap/scss/forms/labels";
-@import "bootstrap/scss/forms/form-text";
-@import "bootstrap/scss/forms/form-control";
-@import "bootstrap/scss/forms/form-select";
-@import "bootstrap/scss/forms/form-check";
-@import "bootstrap/scss/helpers/ratio";
-@import "bootstrap/scss/helpers/position";
-@import "bootstrap/scss/helpers/stacks";
-@import "bootstrap/scss/helpers/stretched-link";
-@import "bootstrap/scss/helpers/text-truncation";
-@import "bootstrap/scss/helpers/visually-hidden";
-
-// 5. Utilities (generated from the extended $utilities map).
-@import "bootstrap/scss/utilities/api";
-
-// 6. Project code.
-@import "base";
-@import "components";
+// 2. Código del proyecto.
+@use "base";
+@use "components";

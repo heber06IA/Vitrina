@@ -1,9 +1,11 @@
-// Map overrides, applied after Bootstrap's variables and before its maps.
+// Map overrides, applied after Bootstrap's variables and before its maps (see _vendor-bootstrap.scss).
 // Only the roles the storefront needs generate components (info and warning are never used).
-$theme-colors: map-remove($theme-colors, "info", "warning");
+@use "sass:map";
+
+$theme-colors: map.remove($theme-colors, "info", "warning");
 
 // Aspect ratios used by product photography plates.
-$aspect-ratios: map-merge(
+$aspect-ratios: map.merge(
   $aspect-ratios,
   (
     "4x5": calc(5 / 4 * 100%),
