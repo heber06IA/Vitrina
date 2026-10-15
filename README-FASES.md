@@ -4,16 +4,16 @@ Hoja de ruta para llevar Vitrina de una demostración estática (HTML, Bootstrap
 
 Cada fase tiene un **objetivo**, sus **tareas** y un **criterio de salida**. Una fase se considera terminada cuando se cumple su criterio de salida, no cuando se acaban las tareas. Las fases se recorren en orden. Dentro de una fase, las tareas pueden avanzar en paralelo.
 
-| Fase | Nombre | Resultado |
-|---|---|---|
-| 1 | Demo estática | ✅ Sitio navegable con datos de muestra (estado actual) |
-| 2 | Base técnica | Repositorio, calidad de código y build confiables |
-| 3 | Frontend funcional | Catálogo, producto y carrito dinámicos sin backend |
-| 4 | Backend y datos | Cuentas, productos e imágenes reales en la nube |
-| 5 | Comercio | Pedidos, pagos, inventario y correos |
-| 6 | Marketplace | Vendedores verificados, comisiones y reseñas |
-| 7 | Producción | Seguridad, legal, monitoreo y lanzamiento |
-| 8 | Crecimiento | SEO, analítica, PWA y mejoras continuas |
+| Fase | Nombre             | Resultado                                               |
+| ---- | ------------------ | ------------------------------------------------------- |
+| 1    | Demo estática      | ✅ Sitio navegable con datos de muestra (estado actual) |
+| 2    | Base técnica       | Repositorio, calidad de código y build confiables       |
+| 3    | Frontend funcional | Catálogo, producto y carrito dinámicos sin backend      |
+| 4    | Backend y datos    | Cuentas, productos e imágenes reales en la nube         |
+| 5    | Comercio           | Pedidos, pagos, inventario y correos                    |
+| 6    | Marketplace        | Vendedores verificados, comisiones y reseñas            |
+| 7    | Producción         | Seguridad, legal, monitoreo y lanzamiento               |
+| 8    | Crecimiento        | SEO, analítica, PWA y mejoras continuas                 |
 
 ---
 
@@ -42,26 +42,31 @@ Limitaciones conocidas:
 **Objetivo:** que el proyecto se pueda modificar sin miedo a romperlo.
 
 ### Control de versiones
-- [ ] `git init`, `.gitignore` (`node_modules/`, `.env`, `*.zip`) y un primer commit.
+
+- [x] `git init`, `.gitignore` (`node_modules/`, `.env`, `*.zip`), `.gitattributes` (saltos de línea LF) y un primer commit.
 - [ ] Repositorio remoto (GitHub o GitLab) con una rama `main` protegida.
-- [ ] Convención de commits (por ejemplo, Conventional Commits).
+- [x] Convención de commits: Conventional Commits en español (`feat:`, `fix:`, `refactor:`, `chore:`, `docs:`...).
 
 ### Calidad de código
-- [ ] Prettier para formatear HTML, SCSS, JS y MD.
-- [ ] ESLint para el JavaScript y Stylelint para el SCSS.
-- [ ] Script `npm run lint` que ejecute los tres.
-- [ ] Separar en varias líneas el código compactado de `marketplace.js` y de `seller.html`.
+
+- [x] Prettier para formatear HTML, SCSS, JS y MD (`.prettierrc.json`).
+- [x] ESLint para el JavaScript (`eslint.config.js`, prohíbe `innerHTML`) y Stylelint para el SCSS (`.stylelintrc.json`).
+- [x] Script `npm run lint` que ejecute los tres, y `npm run check` que además corre pruebas y build.
+- [x] Separar en varias líneas el código compactado de `marketplace.js` y de `seller.html`.
 
 ### Sass
-- [ ] Migrar de `@import` a `@use`/`@forward`. Hoy el build oculta esas advertencias con `--silence-deprecation=import`, y `@import` dejará de funcionar en Dart Sass 3.
-- [ ] Revisar las advertencias de `color-functions` y `global-builtin` en lugar de silenciarlas.
+
+- [x] Migrar de `@import` a `@use`/`@forward`. Bootstrap 5.3 no soporta módulos, así que queda un único archivo puente, `scss/_vendor-bootstrap.scss`, con `@import`. Stylelint prohíbe `@import` en cualquier otro archivo. Cuando salga Bootstrap 6 estable (hoy está en `6.0.0-alpha.1`), el puente se reemplaza por `@use`.
+- [x] Revisar las advertencias de `color-functions` y `global-builtin` en lugar de silenciarlas. El código propio usa `sass:map` y el build ya no las silencia.
 
 ### JavaScript
-- [ ] Convertir los scripts en módulos ES (`<script type="module">`), con un módulo por responsabilidad: `storage`, `auth`, `catalog`, `cart` y `ui`.
-- [ ] Primeras pruebas con `node --test`. El script `npm test` ya existe, pero todavía no hay pruebas. Conviene empezar por las funciones puras: filtros, ordenamiento y formato de precios.
+
+- [x] Dividir los scripts en módulos ES dentro de `src/js/` (`lib/` para las reglas puras, `features/` para la interfaz y `marketplace/` para cuentas y vendedores). esbuild los empaqueta en `assets/js/main.js` como script clásico, así que las páginas se siguen abriendo sin servidor. `cart` se agregará en la fase 3.
+- [x] Primeras pruebas con `node --test` en `tests/`: filtros, ordenamiento, formato de precios, hash de contraseñas y validación de imágenes.
 
 ### Integración continua
-- [ ] Un workflow de CI que en cada push ejecute `npm ci`, `npm run lint`, `npm test` y `npm run build`.
+
+- [x] Un workflow de CI (`.github/workflows/ci.yml`) que en cada push ejecute `npm ci`, `npm run lint`, `npm test` y `npm run build`, y que falle si `assets/` no coincide con las fuentes. Se activa al subir el repositorio a GitHub.
 
 **Criterio de salida:** el código vive en git, la CI pasa en verde y el build no se apoya en advertencias silenciadas.
 
@@ -72,6 +77,7 @@ Limitaciones conocidas:
 **Objetivo:** que toda la experiencia del comprador funcione en el navegador, con los datos separados del HTML. El sitio se sigue publicando en un hosting estático.
 
 ### Catálogo basado en datos
+
 - [ ] Crear `data/products.json` con `id`, `slug`, `title`, `category`, `price`, `currency`, `images[]`, `variants[]`, `stock`, `seller` y `description`.
 - [ ] Generar las tarjetas de `index.html` desde ese JSON.
 - [ ] Hacer `product.html` dinámico con `?id=`, para que una sola plantilla sirva a todos los productos.
@@ -79,6 +85,7 @@ Limitaciones conocidas:
 - [ ] Unificar los productos de la comunidad (`vitrina.products.v1`) con el catálogo base.
 
 ### Carrito
+
 - [ ] Botón "Agregar al carrito" en el producto, con variante y cantidad.
 - [ ] Carrito persistente en `localStorage` (`vitrina.cart.v1`).
 - [ ] `cart.html` dinámico: líneas, cantidades, eliminación, subtotal, envío estimado y total.
@@ -86,9 +93,11 @@ Limitaciones conocidas:
 - [ ] Validación de cupones con una lista local de demostración.
 
 ### Favoritos
+
 - [ ] Guardar los favoritos en `localStorage` y agregar una vista "Mis favoritos".
 
 ### Experiencia, accesibilidad y rendimiento
+
 - [ ] Estados de carga, de lista vacía y de error en cada lista.
 - [ ] Imágenes en WebP o AVIF, `srcset` y `loading="lazy"`.
 - [ ] Auditoría con Lighthouse y axe con una meta de 90 o más en Rendimiento, Accesibilidad, Buenas prácticas y SEO.
@@ -111,6 +120,7 @@ Limitaciones conocidas:
 - [ ] Registrar la decisión elegida y sus motivos en `docs/decisiones.md`.
 
 ### Modelo de datos
+
 - [ ] `profiles`: id, nombre, rol (`buyer` o `seller`) y fecha de alta.
 - [ ] `stores`: tienda del vendedor, con nombre, slug, descripción y estado.
 - [ ] `products`: tienda, título, slug, descripción, categoría, precio en centavos, moneda, estado (`draft`, `active` o `archived`) y fechas.
@@ -119,15 +129,18 @@ Limitaciones conocidas:
 - [ ] `carts` y `cart_items` para el carrito de usuarios con sesión.
 
 ### Autenticación
+
 - [ ] Reemplazar el registro y el inicio de sesión de `marketplace.js` por el proveedor de autenticación. Ninguna contraseña debe hashearse ni guardarse en el cliente.
 - [ ] Verificación de correo, recuperación de contraseña y cierre de sesión.
 - [ ] Reglas de acceso (RLS): cada vendedor solo puede editar los productos de su tienda.
 
 ### Imágenes
+
 - [ ] Subir las imágenes a Storage en lugar de guardarlas en base64 en `localStorage`.
 - [ ] Validar el tipo y el tamaño en el servidor y generar miniaturas.
 
 ### Migración del frontend
+
 - [ ] Una capa `api/` en el JavaScript que oculte si los datos vienen de `products.json` o del backend.
 - [ ] Al iniciar sesión, fusionar el carrito local con el del servidor.
 - [ ] Variables de entorno (`.env`) fuera de git. En el cliente solo debe quedar la clave pública.
@@ -141,27 +154,32 @@ Limitaciones conocidas:
 **Objetivo:** cobrar y entregar pedidos reales.
 
 ### Pedidos
+
 - [ ] Tablas `orders`, `order_items` y `addresses`. Los ítems guardan una copia del precio y del título al momento de la compra.
 - [ ] Estados del pedido: `pending` → `paid` → `shipped` → `delivered` y `cancelled`/`refunded`.
 - [ ] Checkout con dirección, método de envío y resumen del pedido.
 - [ ] Historial de pedidos en `account.html`.
 
 ### Pagos
+
 - [ ] Pasarela con soporte para MXN: **Mercado Pago** o **Stripe** (tarjeta, OXXO y SPEI).
 - [ ] Hacer el cobro desde el servidor. El cliente nunca debe decidir el monto.
 - [ ] Webhook de confirmación de pago que sea idempotente.
 - [ ] Pruebas completas en el modo sandbox de la pasarela.
 
 ### Inventario
+
 - [ ] Reservar o descontar el stock al confirmar el pago, dentro de una transacción.
 - [ ] Bloquear la compra de productos agotados y avisar al vendedor cuando el stock esté bajo.
 
 ### Envíos e impuestos
+
 - [ ] Tarifas de envío fijas por zona en una primera etapa. Más adelante, integración con una paquetería.
 - [ ] Mostrar los precios con IVA incluido.
 - [ ] Evaluar la facturación electrónica (CFDI) por medio de un PAC si se va a facturar.
 
 ### Correos transaccionales
+
 - [ ] Un proveedor de correo (Resend, SendGrid o similar) con dominio verificado (SPF y DKIM).
 - [ ] Correos de bienvenida, confirmación de pedido, pago recibido, envío y recuperación de contraseña.
 
@@ -190,6 +208,7 @@ Limitaciones conocidas:
 **Objetivo:** operar con seguridad y cumpliendo la ley.
 
 ### Seguridad
+
 - [ ] HTTPS obligatorio y encabezados de seguridad: CSP, HSTS, `X-Content-Type-Options` y `Referrer-Policy`.
 - [ ] Revisión de reglas RLS y permisos, y protección CSRF y XSS (el código ya usa `textContent`; hay que mantenerlo así).
 - [ ] Límites de peticiones en el inicio de sesión, el registro y el checkout. Captcha si hace falta.
@@ -197,12 +216,14 @@ Limitaciones conocidas:
 - [ ] Respaldos automáticos de la base de datos con una prueba de restauración.
 
 ### Legal (México)
+
 - [ ] Aviso de privacidad conforme a la LFPDPPP.
 - [ ] Términos y condiciones, política de devoluciones, envíos y garantías (PROFECO).
 - [ ] Datos de contacto y razón social visibles.
 - [ ] Aviso de cookies si se usa analítica.
 
 ### Operación
+
 - [ ] Dominio propio, entornos separados de `staging` y `production`, y despliegue automático desde `main`.
 - [ ] Monitoreo de errores (Sentry o similar) y de disponibilidad.
 - [ ] Reemplazar todo el contenido de demostración: productos, imágenes, reseñas y vendedores.

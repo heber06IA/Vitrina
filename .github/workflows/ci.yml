@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+
+      # assets/css y assets/js se versionan para publicar sin Node: deben coincidir con las fuentes.
+      - name: Verificar que los archivos compilados están actualizados
+        run: |
+          if ! git diff --exit-code -- assets/; then
+            echo "::error::assets/ no coincide con scss/ o src/js/. Ejecuta 'npm run build' y haz commit del resultado."
+            exit 1
+          fi

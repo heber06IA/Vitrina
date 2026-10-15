@@ -9,7 +9,22 @@ Sitio multipágina en español, preparado para hosting estático. Incluye portad
 3. Confirma que `index.html` quede en la raíz del dominio. `assets/`, `Clothes/`, `Perfume/` y `Tecnology/` también deben quedar en esa raíz.
 4. Abre el dominio y prueba navegación, imágenes y enlaces en móvil.
 
-No hace falta configurar Node.js para publicar: CSS y JavaScript compilados ya están incluidos. Para editar estilos, instala dependencias con `npm install` y ejecuta `npm run build`.
+No hace falta configurar Node.js para publicar: CSS y JavaScript compilados ya están incluidos. Sube solo las páginas `.html`, `robots.txt`, `assets/` y las carpetas de imágenes. `src/`, `scss/`, `tests/`, `node_modules/` y los archivos de configuración no se publican.
+
+## Desarrollo
+
+Requiere Node.js 24 o superior. Instala las dependencias una vez con `npm install`.
+
+| Comando                                  | Qué hace                                                                    |
+| ---------------------------------------- | --------------------------------------------------------------------------- |
+| `npm run build`                          | Compila `scss/` en `assets/css/main.css` y `src/js/` en `assets/js/main.js` |
+| `npm run watch:css` / `npm run watch:js` | Recompila al guardar                                                        |
+| `npm run lint`                           | ESLint, Stylelint y Prettier en modo verificación                           |
+| `npm run format`                         | Formatea todo el proyecto con Prettier                                      |
+| `npm test`                               | Pruebas unitarias de `tests/`                                               |
+| `npm run check`                          | Lint, pruebas y build: ejecútalo antes de cada commit                       |
+
+Edita siempre las fuentes (`scss/` y `src/js/`), nunca `assets/css/main.css` ni `assets/js/main.js`, que se generan. Haz commit de las fuentes y de los archivos generados juntos; la CI falla si no coinciden.
 
 ## Estado de las funciones
 
