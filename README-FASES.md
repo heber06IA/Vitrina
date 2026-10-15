@@ -44,7 +44,8 @@ Limitaciones conocidas:
 ### Control de versiones
 
 - [x] `git init`, `.gitignore` (`node_modules/`, `.env`, `*.zip`), `.gitattributes` (saltos de línea LF) y un primer commit.
-- [ ] Repositorio remoto (GitHub o GitLab) con una rama `main` protegida.
+- [x] Repositorio remoto en GitHub: [heber06IA/Vitrina](https://github.com/heber06IA/Vitrina), con la CI en verde.
+- [ ] Proteger la rama `main` (Settings → Branches): exigir que la CI pase antes de integrar cambios.
 - [x] Convención de commits: Conventional Commits en español (`feat:`, `fix:`, `refactor:`, `chore:`, `docs:`...).
 
 ### Calidad de código
