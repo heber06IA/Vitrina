@@ -1,0 +1,132 @@
+// Extensions to Bootstrap's $utilities map: the project palette, the type scale and a few helpers.
+// Imported after bootstrap/scss/utilities and before bootstrap/scss/utilities/api.
+
+$utilities: map-merge(
+  $utilities,
+  (
+    // Palette as text / background / border colors (text-ink, bg-surface, border-line, ...).
+    "color": map-merge(
+      map-get($utilities, "color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "color"), "values"),
+          (
+            "ink": $ink,
+            "muted": $muted,
+            "accent-ink": $accent-ink,
+            "field": $field,
+            "ground": $ground
+          )
+        )
+      )
+    ),
+    "background-color": map-merge(
+      map-get($utilities, "background-color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "background-color"), "values"),
+          (
+            "ground": $ground,
+            "surface": $surface,
+            "plate": $plate,
+            "ink": $ink,
+            "line": $line,
+            "accent-soft": $accent-soft
+          )
+        )
+      )
+    ),
+    "border-color": map-merge(
+      map-get($utilities, "border-color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "border-color"), "values"),
+          (
+            "line": $line,
+            "field": $field,
+            "ink": $ink,
+            "ink-25": rgba($ink, .25),
+            "transparent": transparent
+          )
+        )
+      )
+    ),
+
+    // Type scale: .fs-sm, .fs-2xl, .fs-lg-6xl, ... (line heights live in _base.scss).
+    "font-size": (
+      responsive: true,
+      property: font-size,
+      class: fs,
+      values: $font-sizes
+    ),
+    "line-height": map-merge(
+      map-get($utilities, "line-height"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "line-height"), "values"),
+          (
+            "display": 1.05,
+            "tight": 1.25,
+            "snug": 1.375
+          )
+        )
+      )
+    ),
+    "letter-spacing": (
+      property: letter-spacing,
+      class: tracking,
+      values: (
+        tight: -.025em
+      )
+    ),
+    "text-wrap": (
+      property: text-wrap,
+      class: text,
+      values: (
+        balance: balance
+      )
+    ),
+
+    // Measure caps and flex helpers.
+    "max-width": map-merge(
+      map-get($utilities, "max-width"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "max-width"), "values"),
+          (
+            "32ch": 32ch,
+            "48ch": 48ch,
+            "60ch": 60ch,
+            "65ch": 65ch,
+            "3xl": 48rem
+          )
+        )
+      )
+    ),
+    "min-width": (
+      property: min-width,
+      class: min-w,
+      values: (
+        0: 0
+      )
+    ),
+    "flex": (
+      responsive: true,
+      property: flex,
+      values: (
+        fill: 1 1 auto,
+        1: 1 1 0%,
+        none: 0 0 auto
+      )
+    ),
+    "scroll-margin-top": (
+      property: scroll-margin-top,
+      class: scroll-mt,
+      values: (
+        4: 1rem,
+        6: 1.5rem,
+        28: 7rem
+      )
+    )
+  )
+);

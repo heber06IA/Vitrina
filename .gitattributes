@@ -1,0 +1,12 @@
+# Normaliza los saltos de línea a LF en el repositorio, aunque se edite en Windows.
+* text=auto eol=lf
+
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.webp binary
+*.avif binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary

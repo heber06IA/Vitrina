@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/marketplace.js" defer></script>
+  <title>Mi cuenta — Vitrina</title>
+</head>
+<body>
+  <a href="#main" class="visually-hidden-focusable skip-link">Saltar al contenido</a>
+  <header class="site-header">
+    <p data-demo class="announcement">Política de ejemplo: envío gratis en pedidos mayores a $999 MXN</p>
+    <div class="container-xl d-flex flex-wrap flex-md-nowrap align-items-center column-gap-4 column-gap-md-8 row-gap-3 py-4">
+      <button type="button" class="nav-toggle icon-btn ms-n2 d-md-none" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Menú de departamentos"><svg class="icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></svg></button>
+      <a href="index.html" class="brand">Vitrina</a>
+      <form role="search" action="index.html" method="get" class="search-pill order-last order-md-0">
+        <label for="site-search" class="visually-hidden">Buscar productos</label>
+        <span class="search-pill__icon"><svg class="icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
+        <input type="search" id="site-search" name="q" placeholder="Buscar productos" class="form-control">
+        <button type="submit" class="btn btn-primary btn-sm">Buscar</button>
+      </form>
+      <nav aria-label="Acciones de la cuenta" class="d-flex align-items-center gap-1 ms-auto ms-md-0">
+        <a href="sell.html" class="header-link">Vender</a>
+        <a href="account.html" class="icon-btn" aria-current="page"><svg class="icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span class="visually-hidden">Mi cuenta</span></a>
+        <a href="cart.html" class="icon-btn position-relative"><svg class="icon-md" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="visually-hidden">Carrito (2)</span><span class="count-badge" aria-hidden="true">2</span></a>
+      </nav>
+    </div>
+    <nav id="site-nav" aria-label="Principal" data-nav class="site-nav">
+      <ul class="container-xl d-flex flex-wrap align-items-center column-gap-2 py-1 fs-sm fw-medium">
+        <li><a href="index.html" class="site-nav__link ms-n4">Inicio</a></li>
+        <li><a href="index.html#ropa" class="site-nav__link">Ropa</a></li>
+        <li><a href="index.html#perfumes" class="site-nav__link">Perfumes</a></li>
+        <li><a href="index.html#tecnologia" class="site-nav__link">Tecnología</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="container-xl pt-8 pt-lg-12 pb-14" data-account-page>
+    <section class="mx-auto mw-3xl">
+      <p class="eyebrow">Tu espacio en Vitrina</p><h1 class="fs-4xl fw-semibold tracking-tight">Compra y vende desde una sola cuenta</h1>
+      <p class="mt-3 mw-60ch fs-sm text-muted">Crea una cuenta de cliente o vendedor. En esta versión de demostración tus datos y sesión se guardan solo en este navegador.</p>
+      <div class="row gy-12 gy-md-0 gx-md-0 pt-10">
+        <section aria-labelledby="login-title" class="col-md-6 pe-md-12 pe-lg-16">
+          <h2 id="login-title" class="fs-2xl fw-semibold tracking-tight">Iniciar sesión</h2>
+          <form data-auth-login class="mt-6 vstack gap-5">
+            <div><label for="login-email" class="form-label">Correo electrónico</label><input type="email" id="login-email" autocomplete="email" class="form-control" required></div>
+            <div><label for="login-password" class="form-label">Contraseña</label><input type="password" id="login-password" autocomplete="current-password" class="form-control" required></div>
+            <button type="submit" class="btn btn-primary w-100">Entrar a mi cuenta</button><p role="status" aria-live="polite" data-auth-notice class="demo-notice"></p>
+          </form>
+        </section>
+        <section aria-labelledby="signup-title" class="col-md-6 account-divider ps-md-12 ps-lg-16">
+          <h2 id="signup-title" class="fs-2xl fw-semibold tracking-tight">Crear cuenta</h2>
+          <form data-auth-register class="mt-6 vstack gap-5">
+            <div><label for="signup-name" class="form-label">Nombre completo o nombre de tienda</label><input type="text" id="signup-name" autocomplete="name" class="form-control" required maxlength="80"></div>
+            <div><label for="signup-email" class="form-label">Correo electrónico</label><input type="email" id="signup-email" autocomplete="email" class="form-control" required></div>
+            <div><label for="signup-password" class="form-label">Contraseña</label><input type="password" id="signup-password" autocomplete="new-password" minlength="8" class="form-control" required><p class="mt-2 fs-sm text-muted">Mínimo 8 caracteres.</p></div>
+            <fieldset><legend class="form-label">¿Cómo usarás Vitrina?</legend><div class="vstack gap-3"><label class="d-flex align-items-start gap-2"><input type="radio" name="role" value="buyer" checked><span><strong>Quiero comprar</strong><br><span class="fs-sm text-muted">Explorar productos y administrar mi cuenta.</span></span></label><label class="d-flex align-items-start gap-2"><input type="radio" name="role" value="seller"><span><strong>Quiero vender</strong><br><span class="fs-sm text-muted">Crear mi tienda y publicar artículos.</span></span></label></div></fieldset>
+            <button type="submit" class="btn btn-primary w-100">Crear mi cuenta</button><p role="status" aria-live="polite" data-auth-notice class="demo-notice"></p>
+          </form>
+        </section>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container-xl footer-grid py-14">
+      <div>
+        <a href="index.html" class="brand">Vitrina</a>
+        <p class="mt-3 mw-32ch fs-sm text-muted">Compra y vende productos de vendedores independientes en un solo lugar.</p>
+      </div>
+      <nav aria-label="Pie de página" class="row g-8">
+        <section aria-labelledby="footer-buy" class="col-6 col-sm-4">
+          <h2 id="footer-buy" class="fs-sm fw-semibold">Comprar</h2>
+          <ul class="vstack gap-3 mt-4">
+            <li><a href="index.html#ropa" class="link-muted fs-sm">Ropa</a></li>
+            <li><a href="index.html#perfumes" class="link-muted fs-sm">Perfumes</a></li>
+            <li><a href="index.html#tecnologia" class="link-muted fs-sm">Tecnología</a></li>
+            <li><a href="cart.html" class="link-muted fs-sm">Carrito</a></li>
+          </ul>
+        </section>
+        <section aria-labelledby="footer-sell" class="col-6 col-sm-4">
+          <h2 id="footer-sell" class="fs-sm fw-semibold">Vender</h2>
+          <ul class="vstack gap-3 mt-4">
+            <li><a href="sell.html" class="link-muted fs-sm">Publicar un producto</a></li>
+            <li><a href="account.html" class="link-muted fs-sm">Crear una cuenta de vendedor</a></li>
+          </ul>
+        </section>
+        <section aria-labelledby="footer-help" class="col-6 col-sm-4">
+          <h2 id="footer-help" class="fs-sm fw-semibold">Ayuda</h2>
+          <ul class="vstack gap-3 mt-4">
+            <li><a href="product.html#envios" class="link-muted fs-sm">Envíos y devoluciones</a></li>
+            <li><a href="account.html" class="link-muted fs-sm">Mi cuenta</a></li>
+          </ul>
+        </section>
+      </nav>
+      <section aria-labelledby="footer-news">
+        <h2 id="footer-news" class="fs-sm fw-semibold">Novedades por correo</h2>
+        <form action="index.html" method="get" data-demo-form data-demo-message="El registro al boletín no está disponible en esta demostración." class="mt-4">
+          <label for="newsletter-email" class="visually-hidden">Correo electrónico</label>
+          <div class="d-flex gap-2">
+            <input type="email" id="newsletter-email" name="email" autocomplete="email" placeholder="tu@correo.com" required class="form-control min-w-0 flex-1 rounded-pill px-4">
+            <button type="submit" class="btn btn-primary btn-field">Suscribirme</button>
+          </div>
+          <p role="status" aria-live="polite" data-demo-notice class="demo-notice"></p>
+        </form>
+      </section>
+    </div>
+    <div class="container-xl">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 border-top py-6 fs-sm text-muted">
+        <p>© 2026 Vitrina</p>
+        <p>Datos de demostración</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+

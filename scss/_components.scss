@@ -1,0 +1,912 @@
+// Project components. Layout comes from Bootstrap's grid and utilities in the markup; this file holds
+// the pieces that carry the Vitrina identity (DESIGN.md "Components").
+
+$ease-out-expo: cubic-bezier(.16, 1, .3, 1);
+
+// ---------------------------------------------------------------------------
+// Buttons: ink pills (primary), 25%-ink outline pills (secondary)
+// ---------------------------------------------------------------------------
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  min-height: 3rem;
+  white-space: nowrap;
+
+  &:active:not(:disabled):not(.disabled) {
+    transform: scale(.98);
+  }
+
+  &:disabled,
+  &.disabled {
+    pointer-events: none;
+  }
+}
+
+.btn-sm {
+  min-height: 2.5rem;
+}
+
+.btn-lg {
+  min-height: 3.5rem;
+}
+
+// 44px button that sits next to a form field.
+.btn-field {
+  --#{$prefix}btn-padding-x: 1.25rem;
+  min-height: 2.75rem;
+}
+
+.btn-primary {
+  --#{$prefix}btn-border-width: 0;
+  --#{$prefix}btn-hover-bg: #{$ink-hover};
+  --#{$prefix}btn-hover-border-color: #{$ink-hover};
+  --#{$prefix}btn-active-bg: #000;
+  --#{$prefix}btn-active-border-color: #000;
+  --#{$prefix}btn-disabled-bg: #{$ink};
+  --#{$prefix}btn-disabled-border-color: #{$ink};
+}
+
+.btn-outline-primary {
+  --#{$prefix}btn-color: #{$ink};
+  --#{$prefix}btn-bg: #{$ground};
+  --#{$prefix}btn-border-color: #{rgba($ink, .25)};
+  --#{$prefix}btn-hover-color: #{$ink};
+  --#{$prefix}btn-hover-bg: #{$surface};
+  --#{$prefix}btn-hover-border-color: #{$ink};
+  --#{$prefix}btn-active-color: #{$ink};
+  --#{$prefix}btn-active-bg: #{$surface};
+  --#{$prefix}btn-active-border-color: #{$ink};
+  --#{$prefix}btn-disabled-color: #{$ink};
+  --#{$prefix}btn-disabled-bg: #{$ground};
+  --#{$prefix}btn-disabled-border-color: #{rgba($ink, .25)};
+}
+
+// 56px circular outline button (favorite on the product page).
+.round-btn {
+  --#{$prefix}btn-padding-x: 0;
+  flex-shrink: 0;
+  width: 3.5rem;
+}
+
+.icon-btn {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: $border-radius-pill;
+  color: $ink;
+  transition: background-color .15s, color .15s;
+
+  &:hover {
+    background-color: $surface;
+  }
+
+  &:active {
+    background-color: $plate;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: .4;
+  }
+}
+
+.icon-btn-danger {
+  color: $muted;
+
+  &:hover {
+    color: $danger;
+  }
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+// ---------------------------------------------------------------------------
+// Icons and links
+// ---------------------------------------------------------------------------
+.icon-sm { width: 1rem; height: 1rem; }
+.icon-md { width: 1.25rem; height: 1.25rem; }
+.icon-lg { width: 1.5rem; height: 1.5rem; }
+.icon-xl { width: 1.75rem; height: 1.75rem; }
+.icon-filled { fill: currentColor; }
+
+[aria-pressed="true"] > svg {
+  fill: currentColor;
+}
+
+.link-muted {
+  color: $muted;
+
+  &:hover {
+    color: $ink;
+  }
+}
+
+.link-underline-hover:hover {
+  text-decoration: underline;
+}
+
+.link-more {
+  display: inline-flex;
+  align-items: center;
+  gap: .375rem;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.d-contents {
+  display: contents;
+}
+
+// ---------------------------------------------------------------------------
+// Header, navigation, footer
+// ---------------------------------------------------------------------------
+.skip-link:focus {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 50;
+  padding: .75rem 1.25rem;
+  border-radius: $border-radius-pill;
+  background: $ink;
+  color: $ground;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+
+.site-header {
+  border-bottom: 1px solid $line;
+  background: $ground;
+}
+
+.announcement {
+  padding: .5rem 1rem;
+  background: $surface;
+  color: $muted;
+  font-size: .75rem;
+  line-height: 1rem;
+  text-align: center;
+}
+
+.brand {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  letter-spacing: -.025em;
+}
+
+.header-link {
+  display: inline-flex;
+  align-items: center;
+  height: 2.75rem;
+  padding: 0 1rem;
+  border-radius: $border-radius-pill;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  transition: background-color .15s;
+
+  &:hover {
+    background-color: $surface;
+  }
+}
+
+.count-badge {
+  position: absolute;
+  top: .125rem;
+  right: .125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: $border-radius-pill;
+  background: $ink;
+  color: $ground;
+  font-size: .6875rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+// Pill search: surface fill, icon on the left, submit button inside on the right.
+.search-pill {
+  position: relative;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    flex: 1 1 0%;
+    max-width: 36rem;
+    margin-inline: auto;
+  }
+
+  .form-control {
+    height: 3rem;
+    padding-right: 6rem;
+    padding-left: 3rem;
+    border-color: transparent;
+    border-radius: $border-radius-pill;
+    background-color: $surface;
+    background-clip: border-box;
+
+    &:hover:not(:focus) {
+      border-color: $field;
+    }
+
+    &:focus {
+      border-color: $ink;
+    }
+  }
+
+  .btn {
+    position: absolute;
+    top: .25rem;
+    right: .25rem;
+
+    &:active:not(:disabled) {
+      transform: none;
+    }
+  }
+}
+
+.search-pill__icon {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  display: flex;
+  transform: translateY(-50%);
+  color: $muted;
+  pointer-events: none;
+}
+
+.site-nav {
+  border-top: 1px solid $line;
+}
+
+.site-nav__link {
+  display: inline-flex;
+  align-items: center;
+  height: 2.75rem;
+  padding: 0 1rem;
+  border-radius: $border-radius-pill;
+  color: $muted;
+
+  &:hover,
+  &[aria-current="page"] {
+    color: $ink;
+  }
+}
+
+.site-footer {
+  margin-top: 6rem;
+  background: $surface;
+}
+
+// The 1 : 1.6 : 1.1 column ratio is not a 12-column split, so the footer keeps its own grid.
+.footer-grid {
+  display: grid;
+  gap: 3rem;
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) minmax(0, 1.1fr);
+  }
+}
+
+.demo-notice {
+  margin-top: .75rem;
+  color: $muted;
+  font-size: .875rem;
+  line-height: 1.25rem;
+
+  &:empty {
+    margin-top: 0;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Photo plates, brace labels, department tiles, hero
+// ---------------------------------------------------------------------------
+.plate {
+  overflow: hidden;
+  border-radius: $border-radius-lg;
+  background: $plate;
+}
+
+.brace-label {
+  display: inline-flex;
+  align-items: center;
+  padding: .25rem .75rem;
+  border-radius: $border-radius-pill;
+  background: $ground;
+  color: $ink;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+
+.arrow-btn {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: $border-radius-pill;
+  background: $ground;
+  color: $ink;
+  transition: background-color .3s $ease-out-expo, color .3s $ease-out-expo;
+}
+
+.arrow-btn-ink {
+  background: $ink;
+  color: $ground;
+}
+
+// Department tile: full-bleed photo, brace label top left, arrow button top right.
+.tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+
+  @include media-breakpoint-up(sm) {
+    aspect-ratio: 3 / 4;
+  }
+
+  > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease-out;
+  }
+
+  &:hover > img {
+    transform: scale(1.03);
+  }
+
+  .brace-label,
+  .arrow-btn {
+    position: absolute;
+    top: .75rem;
+  }
+
+  .brace-label {
+    left: .75rem;
+  }
+
+  .arrow-btn {
+    right: .75rem;
+  }
+
+  &:hover .arrow-btn,
+  &:focus-visible .arrow-btn {
+    background: $ink;
+    color: $ground;
+  }
+}
+
+.hero-plate {
+  position: relative;
+  aspect-ratio: 5 / 6;
+
+  @include media-breakpoint-up(sm) {
+    aspect-ratio: 4 / 5;
+  }
+
+  @include media-breakpoint-up(lg) {
+    aspect-ratio: auto;
+    height: 32rem;
+  }
+
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+}
+
+// The single soft shadow in the system: the floating product card on the hero photo.
+.hero-card {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: $border-radius-lg;
+  background: $ground;
+  box-shadow: 0 12px 32px -10px rgba($ink, .28);
+
+  @include media-breakpoint-up(sm) {
+    right: auto;
+    width: 20rem;
+  }
+
+  &:hover .arrow-btn-ink {
+    background: $ink-hover;
+  }
+}
+
+// Call-to-action tile that completes a catalog row.
+.cta-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 16rem;
+  padding: 1.25rem;
+  color: $ink;
+  transition: background-color .3s;
+
+  &:hover {
+    background-color: $line;
+  }
+
+  &:hover .arrow-btn-ink {
+    background: $ink-hover;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Chips, filters, swatches
+// ---------------------------------------------------------------------------
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 2.5rem;
+  padding: 0 1rem;
+  border: 1px solid $line;
+  border-radius: $border-radius-pill;
+  background: $ground;
+  color: $ink;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color .15s, background-color .15s, color .15s;
+
+  &:hover {
+    border-color: $ink;
+  }
+}
+
+.size-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3rem;
+  height: 2.75rem;
+  padding: 0 1rem;
+  border: 1px solid $field;
+  border-radius: $border-radius;
+  background: $ground;
+  color: $ink;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color .15s, background-color .15s, color .15s;
+
+  &:hover {
+    border-color: $ink;
+  }
+}
+
+.swatch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid $line;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: box-shadow .15s;
+
+  &:hover {
+    box-shadow: 0 0 0 2px $field;
+  }
+}
+
+// Selected state for radio-driven chips (the radio is a visually hidden .btn-check).
+.btn-check:checked + .chip,
+.btn-check:checked + .size-chip {
+  border-color: $ink;
+  background: $ink;
+  color: $ground;
+}
+
+.btn-check:checked + .swatch {
+  box-shadow: 0 0 0 2px $ground, 0 0 0 4px $ink;
+}
+
+.btn-check:focus-visible + .chip,
+.btn-check:focus-visible + .size-chip,
+.btn-check:focus-visible + .swatch {
+  outline: 2px solid $ink;
+  outline-offset: 2px;
+}
+
+.catalog-filters {
+  margin-top: 1.5rem;
+  padding-block: .75rem;
+  border-block: 1px solid $line;
+  background: $ground;
+
+  @include media-breakpoint-up(md) {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+  }
+}
+
+.filter-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: end;
+  gap: .75rem;
+
+  @include media-breakpoint-up(sm) {
+    grid-template-columns: repeat(2, minmax(0, 7rem)) minmax(0, 12rem) auto;
+  }
+}
+
+.filter-controls__wide {
+  grid-column: span 2;
+
+  @include media-breakpoint-up(sm) {
+    grid-column: auto;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Product card
+// ---------------------------------------------------------------------------
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-card__plate {
+  position: relative;
+}
+
+.product-card__img {
+  transition: transform .5s ease-out;
+}
+
+.product-card:hover .product-card__img {
+  transform: scale(1.03);
+}
+
+.product-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding-top: .75rem;
+}
+
+.product-card__name {
+  font-size: .9375rem;
+  line-height: 1.375;
+  font-weight: 500;
+}
+
+.fav-btn {
+  position: absolute;
+  top: .75rem;
+  right: .75rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $border-radius-pill;
+  background: $ground;
+  color: $ink;
+  transition: background-color .15s, color .15s;
+
+  &:hover {
+    background: $ink;
+    color: $ground;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile > img,
+  .product-card__img {
+    transition: none;
+  }
+
+  .tile:hover > img,
+  .product-card:hover .product-card__img {
+    transform: none;
+  }
+}
+
+// Savings and in-stock signals: the only place the green accent appears.
+.tag {
+  display: inline-flex;
+  padding: .25rem .75rem;
+  border-radius: $border-radius-pill;
+  background: $surface;
+  font-size: .75rem;
+  line-height: 1rem;
+  font-weight: 500;
+}
+
+.tag-savings {
+  display: inline-flex;
+  padding: .125rem .625rem;
+  border-radius: $border-radius-pill;
+  background: $accent-soft;
+  color: $accent-ink;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+
+.avatar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: $border-radius-pill;
+  background: $plate;
+  font-size: .875rem;
+  font-weight: 600;
+}
+
+// ---------------------------------------------------------------------------
+// Product page
+// ---------------------------------------------------------------------------
+.product-layout {
+  display: grid;
+  gap: 2rem;
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 3.5rem;
+  }
+}
+
+.trust-list {
+  display: grid;
+  gap: 1rem;
+
+  @include media-breakpoint-up(sm) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.tabs-nav a {
+  display: inline-flex;
+  align-items: center;
+  height: 3rem;
+  border-bottom: 2px solid transparent;
+  color: $muted;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  white-space: nowrap;
+
+  &:hover {
+    color: $ink;
+  }
+
+  &[aria-current="true"] {
+    border-color: $ink;
+    color: $ink;
+  }
+}
+
+.spec-term {
+  flex-shrink: 0;
+  width: 8rem;
+  color: $muted;
+}
+
+// Children separated by a hairline instead of boxes (DESIGN.md "Hairline Over Box").
+.list-divided > * + * {
+  border-top: 1px solid $line;
+}
+
+.list-divided-flush > :first-child {
+  padding-top: 0 !important;
+}
+
+// ---------------------------------------------------------------------------
+// Cart
+// ---------------------------------------------------------------------------
+.cart-layout {
+  display: grid;
+  gap: 3rem;
+  align-items: start;
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: minmax(0, 1fr) 24rem;
+  }
+}
+
+.cart-line {
+  display: flex;
+  gap: 1rem;
+
+  @include media-breakpoint-up(sm) {
+    gap: 1.5rem;
+  }
+}
+
+.cart-thumb {
+  flex-shrink: 0;
+  align-self: flex-start;
+  width: 6rem;
+
+  @include media-breakpoint-up(sm) {
+    width: 7rem;
+  }
+}
+
+.order-summary {
+  padding: 1.5rem;
+  border-radius: $border-radius-xl;
+  background: $surface;
+
+  @include media-breakpoint-up(lg) {
+    position: sticky;
+    top: 1.5rem;
+  }
+}
+
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  height: 3rem;
+  border: 1px solid $field;
+  border-radius: $border-radius-pill;
+  background: $ground;
+
+  &:focus-within {
+    outline: 2px solid $ink;
+    outline-offset: 2px;
+  }
+
+  input {
+    width: 3rem;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+    appearance: textfield;
+    -moz-appearance: textfield;
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      margin: 0;
+      -webkit-appearance: none;
+    }
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: $border-radius-pill;
+    transition: background-color .15s;
+
+    &:hover {
+      background-color: $surface;
+    }
+
+    &:disabled {
+      pointer-events: none;
+      opacity: .4;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Forms (sell and account)
+// ---------------------------------------------------------------------------
+.section-rule {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid $line;
+}
+
+.form-label {
+  display: block;
+  line-height: 1.25rem;
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 8rem;
+  padding-block: .75rem;
+}
+
+.drop-zone {
+  display: grid;
+  gap: .5rem;
+  place-items: center;
+  padding: 2.5rem 1.5rem;
+  border: 2px dashed $field;
+  border-radius: $border-radius-lg;
+  background: $ground;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color .15s;
+
+  &:hover {
+    background: $surface;
+  }
+}
+
+.drop-zone-input:focus-visible + .drop-zone {
+  outline: 2px solid $ink;
+  outline-offset: 2px;
+}
+
+// Publish / save-draft bar: sticks to the bottom edge on small screens, flows with the form from md.
+.form-actions {
+  position: sticky;
+  bottom: 0;
+  z-index: 20;
+  margin: 2.5rem -1rem 0;
+  padding: .75rem 1rem;
+  border-top: 1px solid $line;
+  background: $ground;
+
+  @include media-breakpoint-up(sm) {
+    margin-right: -1.5rem;
+    margin-left: -1.5rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  @include media-breakpoint-up(md) {
+    position: static;
+    margin-right: 0;
+    margin-left: 0;
+    padding: 0;
+    border: 0;
+  }
+}
+
+.account-divider {
+  @include media-breakpoint-up(md) {
+    border-left: 1px solid $line;
+  }
+}

@@ -1,0 +1,172 @@
+// Base layer: the browser surfaces the design owns (selection, caret, scrollbars, focus) and a few resets
+// that keep Bootstrap's reboot aligned with the Vitrina look.
+
+html {
+  scroll-behavior: smooth;
+  accent-color: $ink;
+  caret-color: $ink;
+  scrollbar-width: thin;
+  scrollbar-color: $scrollbar $surface;
+  -webkit-text-size-adjust: 100%;
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: $font-family-sans-serif;
+  background-color: $ground;
+  color: $ink;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: $ink;
+  color: $ground;
+}
+
+:focus-visible {
+  outline: 2px solid $ink;
+  outline-offset: 2px;
+}
+
+// Bootstrap removes the outline from some controls on :focus; keep the shared ink ring on keyboard focus.
+.btn:focus-visible,
+.form-control:focus-visible,
+.form-select:focus-visible,
+.form-check-input:focus-visible {
+  outline: 2px solid $ink;
+  outline-offset: 2px;
+}
+
+button:not(:disabled),
+[role="button"],
+summary {
+  cursor: pointer;
+}
+
+a {
+  text-underline-offset: .22em;
+  text-decoration-thickness: 1px;
+}
+
+// Side padding grows with the viewport: 16px, 24px, 32px (--bs-gutter-x is the padding total).
+.container-xl {
+  @include media-breakpoint-up(sm) {
+    --#{$prefix}gutter-x: 3rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    --#{$prefix}gutter-x: 4rem;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: $muted;
+  opacity: 1;
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+// Bare controls and lists start neutral, as the components expect.
+button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+dl, dd, figure {
+  margin: 0;
+}
+
+fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+legend {
+  float: none;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  line-height: inherit;
+
+  + * {
+    clear: none;
+  }
+}
+
+s {
+  text-decoration-thickness: 1px;
+}
+
+// Prices keep tabular numerals so columns of figures align.
+.price {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+// Line heights that go with each .fs-* size (Bootstrap's font-size utility sets size only).
+$type-line-heights: (
+  "xs": 1rem,
+  "micro": 1,
+  "sm": 1.25rem,
+  "product": 1.375,
+  "base": 1.5rem,
+  "lg": 1.75rem,
+  "xl": 1.75rem,
+  "2xl": 2rem,
+  "3xl": 2.25rem,
+  "4xl": 2.5rem,
+  "5xl": 1,
+  "6xl": 1
+);
+
+@each $name, $height in $type-line-heights {
+  .fs-#{$name} {
+    line-height: $height;
+  }
+}
+
+// Disclosure of progressive mobile navigation: the toggle only exists when JavaScript is running.
+.nav-toggle {
+  display: none;
+}
+
+html.js .nav-toggle {
+  display: inline-flex;
+}
+
+@include media-breakpoint-up(md) {
+  html.js .nav-toggle {
+    display: none;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  html.js [data-nav]:not([data-open="true"]) {
+    display: none;
+  }
+}
